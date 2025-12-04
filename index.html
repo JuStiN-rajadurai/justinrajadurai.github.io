@@ -1,407 +1,1059 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Justin Rajadurai | Full Stack Developer</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<!-- Bootstrap 5 -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- AOS Animation -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-
-<style>
-
-:root{
-    --primary:#161b22;
-    --secondary:#00c6ff;
-    --accent:#ff4d6d;
-    --light:#f5f5f5;
-    --card-bg: rgba(255,255,255,0.08);
-}
-
-body{
-    font-family:'Inter', sans-serif;
-    background:#0d1117;
-    color:white;
-    overflow-x:hidden;
-}
-
-/* NAVBAR */
-.navbar{
-    background:rgba(0,0,0,0.55);
-    backdrop-filter:blur(15px);
-}
-
-.navbar-brand{
-    font-family:'Poppins';
-    font-weight:700;
-    font-size:26px;
-    color:white !important;
-}
-
-.navbar-brand span{
-    color:var(--secondary);
-}
-
-/* HERO */
-.hero{
-    background:linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.90)),
-    url("https://images.unsplash.com/photo-1555066931-4365d14bab8c") center/cover no-repeat;
-    padding:170px 0;
-    text-align:center;
-}
-
-.hero h1{
-    font-size:55px;
-    font-weight:700;
-}
-
-.hero h2{
-    font-size:22px;
-    margin-bottom:20px;
-    color:var(--secondary);
-}
-
-.hero p{
-    max-width:700px;
-    margin:0 auto;
-    opacity:0.85;
-    font-size:17px;
-}
-
-/* CONTACT BOX */
-.info-box{
-    background:var(--card-bg);
-    backdrop-filter:blur(12px);
-    padding:20px;
-    border-radius:12px;
-    margin-top:35px;
-    border:1px solid rgba(255,255,255,0.1);
-}
-
-/* SECTIONS */
-.section-title{
-    text-align:center;
-    font-size:34px;
-    margin-bottom:50px;
-    font-weight:600;
-}
-
-.section{
-    padding:70px 0;
-}
-
-/* CARDS */
-.card-custom{
-    background:var(--card-bg);
-    border-radius:14px;
-    padding:25px;
-    border:1px solid rgba(255,255,255,0.08);
-    transition:0.3s;
-}
-
-.card-custom:hover{
-    transform:translateY(-5px);
-    border-color:var(--secondary);
-}
-
-/* SKILLS */
-.skill-item{
-    margin-bottom:12px;
-    padding-bottom:10px;
-    border-bottom:1px solid rgba(255,255,255,0.1);
-}
-
-/* TIMELINE */
-.timeline{
-    border-left:2px solid var(--secondary);
-    padding-left:25px;
-}
-
-.timeline-item{
-    margin-bottom:40px;
-}
-
-.timeline-item h4{
-    color:var(--secondary);
-}
-
-/* PROJECT CARDS */
-.project-card{
-    background:var(--card-bg);
-    padding:25px;
-    border-radius:14px;
-    transition:0.3s;
-    border:1px solid rgba(255,255,255,0.1);
-}
-
-.project-card:hover{
-    transform:translateY(-5px);
-    border-color:var(--secondary);
-}
-
-/* FOOTER */
-.footer{
-    padding:50px 0;
-    background:#0b0f14;
-    text-align:center;
-    color:#aaa;
-}
-
-.footer a{
-    color:var(--secondary);
-}
-
-/* BUTTON */
-.btn-primary-custom{
-    background:var(--secondary);
-    color:#000;
-    padding:12px 30px;
-    font-weight:600;
-    border-radius:50px;
-    border:none;
-    transition:0.3s;
-}
-
-.btn-primary-custom:hover{
-    background:white;
-    color:#000;
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg fixed-top">
-<div class="container">
-    <a class="navbar-brand" href="#home">Justin<span>Rajadurai</span></a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justin Rajadurai | Full Stack Developer & Team Leader</title>
     
-    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-        <i class="fa fa-bars"></i>
-    </button>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
-    <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link text-white" href="#home">Home</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#about">About</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#skills">Skills</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#experience">Experience</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#projects">Projects</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#education">Education</a></li>
-            <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
-        </ul>
-    </div>
-</div>
-</nav>
-
-<!-- HERO -->
-<section id="home" class="hero">
-<div class="container" data-aos="fade-up">
-    <h1>Justin Rajadurai</h1>
-    <h2>Full Stack Developer • Team Leader</h2>
-    <p>4+ years experience in PHP (CodeIgniter 3), React.js, MySQL, API Integrations, E-commerce Platforms & ERP Systems.</p>
-
-    <div class="info-box mt-4">
-        <div class="row">
-            <div class="col-md-4"><i class="fa fa-map-marker"></i> Tirunelveli, Tamil Nadu</div>
-            <div class="col-md-4"><i class="fa fa-envelope"></i> rajaduraijustin2@gmail.com</div>
-            <div class="col-md-4"><i class="fa fa-phone"></i> 6383842680</div>
-        </div>
-    </div>
-
-    <a href="#contact" class="btn btn-primary-custom mt-4">Contact Me</a>
-</div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="section">
-<div class="container">
-    <h2 class="section-title">Professional Summary</h2>
-
-    <div class="card-custom" data-aos="fade-up">
-        <p style="font-size:17px;line-height:1.9;">
-            Experienced in building enterprise-level ERP, e-commerce websites, and scalable backend systems.
-            Strong expertise in CodeIgniter 3, PHP, MySQL, REST APIs, payment gateway integration, and project leadership.
-        </p>
-    </div>
-</div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="section">
-<div class="container">
-    <h2 class="section-title">Technical Skills</h2>
-
-    <div class="row g-4">
-
-        <div class="col-md-4">
-            <div class="card-custom" data-aos="zoom-in">
-                <h4>Languages</h4>
-                <div class="skill-item">HTML</div>
-                <div class="skill-item">CSS</div>
-                <div class="skill-item">JavaScript</div>
-                <div class="skill-item">PHP</div>
-                <div class="skill-item">React.js</div>
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #64ffda;
+            --accent: #ff6b6b;
+            --light: #ccd6f6;
+            --dark: #020c1b;
+            --gray: #8892b0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--light) !important;
+            letter-spacing: 0.5px;
+        }
+        
+        .navbar-brand span {
+            color: var(--secondary);
+        }
+        
+        .nav-link {
+            color: var(--light) !important;
+            font-weight: 500;
+            margin: 0 8px;
+            padding: 8px 16px !important;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary) !important;
+            background: rgba(100, 255, 218, 0.1);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 16px;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: calc(100% - 32px);
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.9) 0%, rgba(2, 12, 27, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.1) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--light), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+        
+        .contact-info-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px auto 0;
+            max-width: 800px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .contact-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .contact-item i {
+            width: 50px;
+            height: 50px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn-primary-custom {
+            background: transparent;
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+            padding: 12px 32px;
+            border-radius: 4px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-primary-custom:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .btn-primary-custom:hover {
+            color: var(--primary);
+        }
+        
+        .btn-primary-custom:hover:before {
+            left: 0;
+        }
+        
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--light);
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        /* ===== SKILLS ===== */
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--secondary);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+        
+        .skill-card h4 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .skill-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list li:before {
+            content: '▸';
+            color: var(--secondary);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* ===== EXPERIENCE TIMELINE ===== */
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--secondary);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            width: 45%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            float: left;
+            clear: right;
+            text-align: right;
+            padding-right: 50px;
+        }
+        
+        .timeline-item:nth-child(even) {
+            float: right;
+            clear: left;
+            padding-left: 50px;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary);
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 0 3px var(--secondary);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            border-color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .timeline-content h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .timeline-content h4 {
+            color: var(--light);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-content .duration {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        /* ===== PROJECTS ===== */
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: 0 15px 35px rgba(100, 255, 218, 0.1);
+        }
+        
+        .project-card h4 {
+            color: var(--light);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .project-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .project-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .project-link:hover {
+            color: var(--accent);
+            gap: 12px;
+        }
+        
+        /* ===== EDUCATION ===== */
+        .education-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .education-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+        }
+        
+        .education-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .education-card p {
+            color: var(--gray);
+            margin-bottom: 10px;
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark);
+            padding: 70px 0 30px;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .footer h4 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                text-align: left !important;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                float: none;
+                clear: both;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 20px;
+                right: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+            
+            .hero-stats {
+                gap: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Justin<span>Rajadurai</span></a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon text-white"><i class="fas fa-bars"></i></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
             </div>
         </div>
+    </nav>
 
-        <div class="col-md-4">
-            <div class="card-custom" data-aos="zoom-in">
-                <h4>Frameworks / DB</h4>
-                <div class="skill-item">CodeIgniter 3</div>
-                <div class="skill-item">MySQL</div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Justin Rajadurai</h1>
+                <h2>Full Stack Developer & Team Leader</h2>
+                <p>4+ years of experience in developing full-stack web applications using PHP (CodeIgniter 3), React.js, and integrating third-party APIs. Specialized in building scalable ERP systems and e-commerce platforms.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">900+</span>
+                        <span class="stat-label">Daily Production</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                </div>
+                
+                <div class="contact-info-box" data-aos="fade-up" data-aos-delay="200">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location</strong>
+                                    <p>Tirunelveli, Tamil Nadu</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>Email</strong>
+                                    <p>rajaduraijustin2@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <strong>Phone</strong>
+                                    <p>+91 6383842680</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#contact" class="btn-primary-custom">Get In Touch</a>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="col-md-4">
-            <div class="card-custom" data-aos="zoom-in">
-                <h4>Tools / API</h4>
-                <div class="skill-item">Git, Postman, VS Code</div>
-                <div class="skill-item">Gemini AI API</div>
-                <div class="skill-item">MOZ API</div>
-                <div class="skill-item">Zoom API</div>
-                <div class="skill-item">Payment Gateway Integration</div>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Professional Summary</h2>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="skill-card" data-aos="fade-up">
+                        <p style="font-size: 1.1rem; line-height: 1.8;">
+                            Experienced Web Developer with 4 years of expertise in developing full-stack web applications using PHP (CodeIgniter 3), React.js, and integrating third-party APIs including Gemini AI, MOZ, and Zoom. Proficient in payment gateway integration and building scalable, responsive e-commerce and ERP platforms. Currently leading an ERP project as a Team Leader, overseeing planning, development, and deployment.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 20px;">
+                            Strong expertise in PHP, CodeIgniter 3, and MySQL with a track record of delivering over 900 pairs per day while maintaining rigorous quality standards for international clients.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-    </div>
-</div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience" class="section">
-<div class="container">
-<h2 class="section-title">Professional Experience</h2>
-
-<div class="timeline">
-
-    <div class="timeline-item" data-aos="fade-left">
-        <h3>Team Leader / Web Developer</h3>
-        <h4>i3Matrix, Anna Nagar</h4>
-        <span>Sep 2024 – Present</span>
-        <p>Leading ERP project & managing development teams.</p>
-    </div>
-
-    <div class="timeline-item" data-aos="fade-left">
-        <h3>Web Developer</h3>
-        <h4>Jorim Technology Solution</h4>
-        <span>Jan 2024 – Sep 2024</span>
-        <p>ERP maintenance, CI3 development, API integrations.</p>
-    </div>
-
-    <div class="timeline-item" data-aos="fade-left">
-        <h3>Web Developer</h3>
-        <h4>Goldmine Infotech</h4>
-        <span>Jun 2023 – Jan 2024</span>
-        <p>E-commerce development (Full-stack).</p>
-    </div>
-
-    <div class="timeline-item" data-aos="fade-left">
-        <h3>Web Developer</h3>
-        <h4>Jorim Technology Solution</h4>
-        <span>Apr 2021 – May 2023</span>
-        <p>Website development + debugging + deployment.</p>
-    </div>
-
-</div>
-
-</div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="section">
-<div class="container">
-<h2 class="section-title">Projects</h2>
-
-<div class="row g-4">
-
-    <div class="col-md-4">
-        <div class="project-card" data-aos="zoom-in">
-            <h4>ERP System</h4>
-            <p>erp.iasiso.com</p>
-            <a href="http://erp.iasiso.com" target="_blank" class="text-info">View Project →</a>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Technical Skills</h2>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-card">
+                        <h4><i class="fas fa-code me-2"></i>Languages</h4>
+                        <ul class="skill-list">
+                            <li>HTML5 & CSS3</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>PHP</li>
+                            <li>React.js</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-card">
+                        <h4><i class="fas fa-cogs me-2"></i>Frameworks & Tools</h4>
+                        <ul class="skill-list">
+                            <li>CodeIgniter 3</li>
+                            <li>Bootstrap 5</li>
+                            <li>Git & GitHub</li>
+                            <li>VS Code</li>
+                            <li>Postman</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="skill-card">
+                        <h4><i class="fas fa-plug me-2"></i>API & Database</h4>
+                        <ul class="skill-list">
+                            <li>MySQL</li>
+                            <li>RESTful APIs</li>
+                            <li>Payment Gateway Integration</li>
+                            <li>Gemini AI API</li>
+                            <li>MOZ API</li>
+                            <li>Zoom API</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="col-md-4">
-        <div class="project-card" data-aos="zoom-in">
-            <h4>E-Commerce Platform</h4>
-            <p>princeplastic.in</p>
-            <a href="http://princeplastic.in" target="_blank" class="text-info">View Project →</a>
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Professional Experience</h2>
+            </div>
+            
+            <div class="timeline">
+                <!-- Experience 1 -->
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Team Leader / Web Developer</h3>
+                        <h4>i3Matrix, Anna Nagar</h4>
+                        <span class="duration">September 2024 – Present</span>
+                        <p>Leading the ERP project as a Team Leader, overseeing planning, development, and deployment. Collaborating with developers and stakeholders to ensure project milestones are met.</p>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Web Developer</h3>
+                        <h4>Jorim Technology Solution</h4>
+                        <span class="duration">January 2024 – September 2024</span>
+                        <p>Worked on enhancements and maintenance of an ERP system using CodeIgniter 3 and MySQL. Integrated APIs and developed scalable modules.</p>
+                    </div>
+                </div>
+                
+                <!-- Experience 3 -->
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Web Developer</h3>
+                        <h4>Goldmine Infotech, Chennai</h4>
+                        <span class="duration">June 2023 – January 2024</span>
+                        <p>Developed full-stack e-commerce platforms. Created and consumed RESTful APIs for dynamic features.</p>
+                    </div>
+                </div>
+                
+                <!-- Experience 4 -->
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Web Developer</h3>
+                        <h4>Jorim Technology Solution</h4>
+                        <span class="duration">April 2021 – May 2023</span>
+                        <p>Built user-friendly websites using PHP and CodeIgniter. Performed testing and debugging for deployment readiness.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="col-md-4">
-        <div class="project-card" data-aos="zoom-in">
-            <h4>Wood Portal</h4>
-            <p>qwood.in</p>
-            <a href="http://qwood.in" target="_blank" class="text-info">View Project →</a>
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Featured Projects</h2>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <h4>ERP System</h4>
+                        <p>Comprehensive enterprise resource planning system with modules for inventory, HR, and finance management.</p>
+                        <p><strong>URL:</strong> erp.iasiso.com</p>
+                        <a href="http://erp.iasiso.com" target="_blank" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <h4>E-Commerce Platform</h4>
+                        <p>Full-featured online shopping platform with payment gateway integration and admin dashboard.</p>
+                        <p><strong>URL:</strong> princeplastic.in</p>
+                        <a href="http://princeplastic.in" target="_blank" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card">
+                        <h4>Wood Products Portal</h4>
+                        <p>B2B platform for wood products with inventory management and order processing system.</p>
+                        <p><strong>URL:</strong> qwood.in</p>
+                        <a href="http://qwood.in" target="_blank" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5" data-aos="fade-up">
+                <p style="color: var(--gray); font-size: 0.95rem;">
+                    <i class="fas fa-globe me-2"></i>
+                    Other projects: vijivalamexim.in • i5solution.in • aatralarakattalai.com • powertechindustries.biz • kvdecors.in
+                </p>
+            </div>
         </div>
-    </div>
+    </section>
 
-</div>
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Education</h2>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="education-card" data-aos="fade-up">
+                        <h3>Master of Business Administration (MBA)</h3>
+                        <p><strong>PSN Engineering College, Anna University</strong></p>
+                        <p>2020 • CGPA: 6.8</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</div>
-</section>
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Get In Touch</h2>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="skill-card text-center" data-aos="fade-up">
+                        <h3>Let's Work Together</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 30px;">I'm currently available for freelance projects and full-time opportunities.</p>
+                        
+                        <div class="row g-4 mt-4">
+                            <div class="col-md-6">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <strong>Email</strong>
+                                        <p>rajaduraijustin2@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <strong>Phone</strong>
+                                        <p>+91 6383842680</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links justify-content-center mt-4">
+                            <a href="mailto:rajaduraijustin2@gmail.com" class="social-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="tel:+916383842680" class="social-link">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- EDUCATION -->
-<section id="education" class="section">
-<div class="container">
-<h2 class="section-title">Education</h2>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4>Justin Rajadurai</h4>
+                    <p>Full Stack Developer & Team Leader with expertise in PHP, CodeIgniter 3, React.js, and building scalable web applications.</p>
+                </div>
+                
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#education">Education</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h4>Contact Info</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Tirunelveli, Tamil Nadu</li>
+                        <li><i class="fas fa-envelope me-2"></i> rajaduraijustin2@gmail.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +91 6383842680</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2024 Justin Rajadurai. All Rights Reserved.</p>
+                <p class="mt-2">Full Stack Developer • PHP • CodeIgniter 3 • React.js • Team Leader</p>
+            </div>
+        </div>
+    </footer>
 
-<div class="card-custom" data-aos="fade-up">
-    <h3>MBA</h3>
-    <p>PSN Engineering College • 2020</p>
-    <p>CGPA: 6.8</p>
-</div>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section">
-<div class="container">
-<h2 class="section-title">Contact</h2>
-
-<div class="card-custom text-center" data-aos="fade-up">
-    <h3>Email:</h3>
-    <p>rajaduraijustin2@gmail.com</p>
-
-    <h3>Phone:</h3>
-    <p>6383842680</p>
-
-    <h3>Location:</h3>
-    <p>Tirunelveli, Tamil Nadu</p>
-
-</div>
-</div>
-</section>
-
-<!-- FOOTER -->
-<div class="footer">
-    <p>© 2025 Justin Rajadurai • All Rights Reserved</p>
-</div>
-
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
-<script>
-AOS.init({
-    duration: 900,
-    once: true
-});
-</script>
-
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('scrolled');
+            } else {
+                document.querySelector('.navbar').classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
