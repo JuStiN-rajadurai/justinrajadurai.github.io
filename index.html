@@ -220,7 +220,7 @@
             justify-content: center;
             color: var(--secondary);
             font-size: 1.2rem;
-            flex-shrink: 0; /* ADDED: Prevents icon from shrinking */
+            flex-shrink: 0; /* Prevents icon from shrinking */
         }
         
         /* ===== BUTTONS ===== */
@@ -352,7 +352,7 @@
             padding: 40px 0;
         }
         
-        .timeline:before {
+        /* .timeline:before {
             content: '';
             position: absolute;
             left: 50%;
@@ -361,80 +361,93 @@
             width: 2px;
             background: var(--secondary);
             transform: translateX(-50%);
-        }
+        } */
         
         .timeline-item {
             margin-bottom: 50px;
             position: relative;
-            width: 45%;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            float: left;
-            clear: right;
-            text-align: right;
-            padding-right: 50px;
-        }
-        
-        .timeline-item:nth-child(even) {
-            float: right;
-            clear: left;
-            padding-left: 50px;
-        }
-        
-        .timeline-dot {
-            position: absolute;
-            top: 20px;
-            width: 20px;
-            height: 20px;
-            background: var(--secondary);
-            border-radius: 50%;
-            border: 4px solid var(--primary);
-            box-shadow: 0 0 0 3px var(--secondary);
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -10px;
-        }
-        
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -10px;
+            width: 100%;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .timeline-content {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            padding: 25px;
+            padding: 30px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline-content:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--secondary);
         }
         
         .timeline-content:hover {
             border-color: var(--secondary);
-            transform: translateX(5px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(100, 255, 218, 0.1);
         }
         
         .timeline-content h3 {
             color: var(--secondary);
             margin-bottom: 10px;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
         
         .timeline-content h4 {
             color: var(--light);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-size: 1.1rem;
         }
         
         .timeline-content .duration {
-            color: var(--gray);
+            color: var(--secondary);
             font-size: 0.9rem;
             margin-bottom: 15px;
             display: block;
+            font-weight: 500;
+            background: rgba(100, 255, 218, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .responsibility-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        
+        .responsibility-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .responsibility-list li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .responsibility-list li:last-child {
+            border-bottom: none;
         }
         
         /* ===== PROJECTS ===== */
-        /* REMOVED: .projects-collapsed class - keeping all projects expanded */
         .project-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -591,12 +604,7 @@
             color: var(--primary);
             transform: translateY(-3px);
         }
-        @media (min-width: 993px) {
-    .js {
-        margin: 930px 0 0 0;
-    }
-}
-
+        
         /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .hero h1 {
@@ -611,28 +619,12 @@
                 font-size: 2rem;
             }
             
-            .timeline:before {
-                left: 30px;
+            .timeline-content {
+                padding: 25px;
             }
             
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                text-align: left !important;
-            }
-            
-            .timeline-item:nth-child(odd),
-            .timeline-item:nth-child(even) {
-                float: none;
-                clear: both;
-                padding-left: 70px;
-                padding-right: 0;
-            }
-            
-            .timeline-item:nth-child(odd) .timeline-dot,
-            .timeline-item:nth-child(even) .timeline-dot {
-                left: 20px;
-                right: auto;
+            .timeline-content h3 {
+                font-size: 1.2rem;
             }
         }
         
@@ -661,7 +653,6 @@
                 padding: 70px 0;
             }
             
-            /* FIXED: Contact item responsive */
             .contact-item {
                 flex-direction: column;
                 text-align: center;
@@ -670,6 +661,21 @@
             
             .contact-item i {
                 margin: 0 auto;
+            }
+            
+            .timeline-content {
+                padding: 20px;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* FIX for PC layout issues */
+        @media (min-width: 1200px) {
+            .timeline-item {
+                max-width: 900px;
             }
         }
     </style>
@@ -712,7 +718,7 @@
                         <span class="stat-label">Years Experience</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">50+</span>
+                        <span class="stat-number">900+</span>
                         <span class="stat-label">Daily Production</span>
                     </div>
                     <div class="stat-item">
@@ -833,7 +839,7 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Experience Section - CORRECTED -->
     <section id="experience" class="section">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
@@ -842,46 +848,64 @@
             
             <div class="timeline">
                 <!-- Experience 1 -->
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-dot"></div>
+                <div class="timeline-item" data-aos="fade-up">
                     <div class="timeline-content">
-                        <h3>Team Leader / Web Developer</h3>
-                        <h4>i3Matrix, Anna Nagar</h4>
                         <span class="duration">September 2024 – Present</span>
-                        <p>Leading the ERP project as a Team Leader, overseeing planning, development, and deployment. Collaborating with developers and stakeholders to ensure project milestones are met.</p>
+                        <h3>Team Leader / Web Developer</h3>
+                        <h4>i3Matrix, Anna Nagar, Chennai</h4>
+                        <ul class="responsibility-list">
+                            <li>Leading the ERP project as a Team Leader, overseeing planning, development, and deployment</li>
+                            <li>Collaborating with developers and stakeholders to ensure project milestones are met</li>
+                            <li>Providing technical guidance and mentoring junior developers</li>
+                            <li>Managing a team of developers in building enterprise-level solutions</li>
+                            <li>Ensuring code quality and best practices are followed throughout the development process</li>
+                        </ul>
                     </div>
                 </div>
                 
                 <!-- Experience 2 -->
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-dot"></div>
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="timeline-content">
+                        <span class="duration">January 2024 – September 2024</span>
                         <h3>Web Developer</h3>
                         <h4>Jorim Technology Solution</h4>
-                        <span class="duration">January 2024 – September 2024</span>
-                        <p>Worked on enhancements and maintenance of an ERP system using CodeIgniter 3 and MySQL. Integrated APIs and developed scalable modules.</p>
+                        <ul class="responsibility-list">
+                            <li>Worked on enhancements and maintenance of an ERP system using CodeIgniter 3 and MySQL</li>
+                            <li>Integrated APIs and developed scalable modules for enterprise solutions</li>
+                            <li>Implemented new features and improved existing functionalities</li>
+                            <li>Performed debugging and optimization of database queries</li>
+                        </ul>
                     </div>
                 </div>
                 
                 <!-- Experience 3 -->
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-dot"></div>
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="timeline-content">
+                        <span class="duration">June 2023 – January 2024</span>
                         <h3>Web Developer</h3>
                         <h4>Goldmine Infotech, Chennai</h4>
-                        <span class="duration">June 2023 – January 2024</span>
-                        <p>Developed full-stack e-commerce platforms. Created and consumed RESTful APIs for dynamic features.</p>
+                        <ul class="responsibility-list">
+                            <li>Developed full-stack e-commerce platforms from scratch</li>
+                            <li>Created and consumed RESTful APIs for dynamic features</li>
+                            <li>Implemented payment gateway integration and shopping cart functionality</li>
+                            <li>Optimized website performance and ensured cross-browser compatibility</li>
+                        </ul>
                     </div>
                 </div>
                 
                 <!-- Experience 4 -->
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-dot"></div>
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="timeline-content">
+                        <span class="duration">April 2021 – May 2023</span>
                         <h3>Web Developer</h3>
                         <h4>Jorim Technology Solution</h4>
-                        <span class="duration">April 2021 – May 2023</span>
-                        <p>Built user-friendly websites using PHP and CodeIgniter. Performed testing and debugging for deployment readiness.</p>
+                        <ul class="responsibility-list">
+                            <li>Built user-friendly websites using PHP and CodeIgniter framework</li>
+                            <li>Performed testing and debugging for deployment readiness</li>
+                            <li>Collaborated with design teams to implement responsive layouts</li>
+                            <li>Maintained and updated existing websites with new features</li>
+                            <li>Ensured website security and implemented best practices</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -896,7 +920,7 @@
             </div>
             
             <!-- Main Projects Row 1 -->
-            <div class="row g-4 js">
+            <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-card">
                         <h4>ERP System</h4>
@@ -981,39 +1005,6 @@
                         <h4>kvdecors.in</h4>
                         <p>Interior design portfolio website with gallery and booking system.</p>
                         <a href="http://kvdecors.in" target="_blank" class="project-link">
-                            View Project <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-card">
-                        <h4>goohoo.in</h4>
-                        <p>E-commerce platform with multi-vendor support and inventory tracking.</p>
-                        <a href="http://goohoo.in" target="_blank" class="project-link">
-                            View Project <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Even More Projects Row 4 - ALL VISIBLE -->
-            <div class="row g-4 mt-4 more-projects">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-card">
-                        <h4>saycure.in</h4>
-                        <p>Healthcare website with appointment scheduling and patient portal.</p>
-                        <a href="http://saycure.in" target="_blank" class="project-link">
-                            View Project <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-card">
-                        <h4>bodhilawacademy.com</h4>
-                        <p>Educational platform with course management and student registration.</p>
-                        <a href="http://bodhilawacademy.com" target="_blank" class="project-link">
                             View Project <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
