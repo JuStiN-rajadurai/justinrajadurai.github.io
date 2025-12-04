@@ -209,6 +209,7 @@
             border-bottom: none;
         }
         
+        /* FIXED: Email icon width */
         .contact-item i {
             width: 50px;
             height: 50px;
@@ -219,6 +220,7 @@
             justify-content: center;
             color: var(--secondary);
             font-size: 1.2rem;
+            flex-shrink: 0; /* ADDED: Prevents icon from shrinking */
         }
         
         /* ===== BUTTONS ===== */
@@ -432,6 +434,7 @@
         }
         
         /* ===== PROJECTS ===== */
+        /* REMOVED: .projects-collapsed class - keeping all projects expanded */
         .project-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -484,6 +487,15 @@
         .project-link:hover {
             color: var(--accent);
             gap: 12px;
+        }
+        
+        /* ADDED: More project cards styling */
+        .more-projects {
+            margin-top: 50px;
+        }
+        
+        .more-projects .project-card {
+            margin-bottom: 30px;
         }
         
         /* ===== EDUCATION ===== */
@@ -643,6 +655,17 @@
             .section {
                 padding: 70px 0;
             }
+            
+            /* FIXED: Contact item responsive */
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .contact-item i {
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
@@ -684,7 +707,7 @@
                         <span class="stat-label">Years Experience</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">900+</span>
+                        <span class="stat-number">50+</span>
                         <span class="stat-label">Daily Production</span>
                     </div>
                     <div class="stat-item">
@@ -860,13 +883,14 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section - ALL EXPANDED -->
     <section id="projects" class="section">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
                 <h2>Featured Projects</h2>
             </div>
             
+            <!-- Main Projects Row 1 -->
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-card">
@@ -902,11 +926,101 @@
                 </div>
             </div>
             
-            <div class="text-center mt-5" data-aos="fade-up">
-                <p style="color: var(--gray); font-size: 0.95rem;">
-                    <i class="fas fa-globe me-2"></i>
-                    Other projects: vijivalamexim.in • i5solution.in • aatralarakattalai.com • powertechindustries.biz • kvdecors.in
-                </p>
+            <!-- More Projects Row 2 - ALL VISIBLE -->
+            <div class="row g-4 mt-4 more-projects">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <h4>vijivalamexim.in</h4>
+                        <p>Business website with product showcase and contact management system.</p>
+                        <a href="http://vijivalamexim.in" target="_blank" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <h4>i5solution.in</h4>
+                        <p>Corporate website with service portfolio and client testimonials.</p>
+                        <a href="http://i5solution.in" target="_blank" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card">
+                        <h4>aatralarakattalai.com</h4>
+                        <p>Community website with event management and membership system.</p>
+                        <a href="http://aatralarakattalai.com" target="_blank" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- More Projects Row 3 - ALL VISIBLE -->
+            <div class="row g-4 mt-4 more-projects">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <h4>powertechindustries.biz</h4>
+                        <p>Industrial company website with product catalog and quotation system.</p>
+                        <a href="http://powertechindustries.biz" target="_blank" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <h4>kvdecors.in</h4>
+                        <p>Interior design portfolio website with gallery and booking system.</p>
+                        <a href="http://kvdecors.in" target="_blank" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card">
+                        <h4>goohoo.in</h4>
+                        <p>E-commerce platform with multi-vendor support and inventory tracking.</p>
+                        <a href="http://goohoo.in" target="_blank" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Even More Projects Row 4 - ALL VISIBLE -->
+            <div class="row g-4 mt-4 more-projects">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <h4>saycure.in</h4>
+                        <p>Healthcare website with appointment scheduling and patient portal.</p>
+                        <a href="http://saycure.in" target="_blank" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <h4>bodhilawacademy.com</h4>
+                        <p>Educational platform with course management and student registration.</p>
+                        <a href="http://bodhilawacademy.com" target="_blank" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card">
+                        <h4>Job Work Projects</h4>
+                        <p>Tommy Hilfiger, Mephisto, Geox, Clarks, Apple, Johnston & Murphy - Manufacturing and job work collaborations.</p>
+                        <p class="text-success"><i class="fas fa-check-circle"></i> Premium Brand Partnerships</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
