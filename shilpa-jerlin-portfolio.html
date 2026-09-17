@@ -1,471 +1,2383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shilpa Jerlin — Accountant</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper:#F6F1E6;
-    --paper-raised:#FBF8F1;
-    --ink:#1E2B24;
-    --ink-soft:#4A564C;
-    --rule:#D8CDB2;
-    --rule-strong:#B9A97F;
-    --brass:#96702E;
-    --brass-bright:#B9863E;
-    --forest:#2E4638;
-    --shadow: rgba(30,43,36,0.08);
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  :root:not([data-theme="light"]){
-    @media (prefers-color-scheme: dark){
-      --paper:#161A16;
-      --paper-raised:#1D231D;
-      --ink:#EDE7D9;
-      --ink-soft:#B6AF9C;
-      --rule:#3A3F35;
-      --rule-strong:#4F5643;
-      --brass:#D2A15C;
-      --brass-bright:#E3B876;
-      --forest:#7FA189;
-      --shadow: rgba(0,0,0,0.35);
-    }
-  }
-  :root[data-theme="dark"]{
-    --paper:#161A16;
-    --paper-raised:#1D231D;
-    --ink:#EDE7D9;
-    --ink-soft:#B6AF9C;
-    --rule:#3A3F35;
-    --rule-strong:#4F5643;
-    --brass:#D2A15C;
-    --brass-bright:#E3B876;
-    --forest:#7FA189;
-    --shadow: rgba(0,0,0,0.35);
-  }
+    <title>Shilpa Jerlin | Accountant Portfolio</title>
 
-  *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter', sans-serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{ color:inherit; }
-  ::selection{ background:var(--brass); color:var(--paper); }
+    <meta name="description"
+          content="Professional portfolio of Shilpa Jerlin, Accountant based in Coimbatore, Tamil Nadu.">
 
-  .wrap{
-    max-width:920px;
-    margin:0 auto;
-    padding:0 32px;
-  }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  /* Ledger rule background texture for hero & footer */
-  .ledger-bg{
-    background-image: repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent 43px,
-      var(--rule) 43px,
-      var(--rule) 44px
-    );
-  }
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap"
+          rel="stylesheet">
 
-  header.hero{
-    padding-top:76px;
-    padding-bottom:56px;
-    border-bottom:1px solid var(--rule-strong);
-  }
-  .masthead{
-    display:flex;
-    align-items:flex-start;
-    justify-content:space-between;
-    gap:40px;
-    flex-wrap:wrap;
-  }
-  .masthead-text{ max-width:560px; }
-  .eyebrow-line{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:13px;
-    color:var(--brass);
-    letter-spacing:0.02em;
-    margin-bottom:18px;
-  }
-  h1.name{
-    font-family:'Lora', serif;
-    font-weight:600;
-    font-size:clamp(38px, 6vw, 58px);
-    line-height:1.05;
-    margin:0 0 10px 0;
-    letter-spacing:-0.01em;
-  }
-  .role-line{
-    font-family:'Lora', serif;
-    font-style:italic;
-    font-size:20px;
-    color:var(--ink-soft);
-    margin:0 0 26px 0;
-  }
-  .lede{
-    font-size:16.5px;
-    color:var(--ink-soft);
-    max-width:52ch;
-    margin:0 0 30px 0;
-  }
-  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:12px 22px;
-    border-radius:3px;
-    font-size:14.5px;
-    font-weight:500;
-    text-decoration:none;
-    border:1px solid var(--forest);
-    transition: background 160ms ease, color 160ms ease;
-  }
-  .btn-solid{ background:var(--forest); color:var(--paper-raised); }
-  .btn-solid:hover{ background:var(--brass); border-color:var(--brass); }
-  .btn-outline{ background:transparent; color:var(--ink); border-color:var(--rule-strong); }
-  .btn-outline:hover{ border-color:var(--forest); }
+    <style>
 
-  /* Seal / monogram, in place of a photograph */
-  .seal{
-    flex-shrink:0;
-    width:132px;
-    height:132px;
-    border-radius:50%;
-    border:2px solid var(--forest);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-  }
-  .seal::before{
-    content:"";
-    position:absolute;
-    inset:8px;
-    border-radius:50%;
-    border:1px dashed var(--rule-strong);
-  }
-  .seal-mono{
-    font-family:'Lora', serif;
-    font-weight:600;
-    font-size:34px;
-    color:var(--forest);
-  }
-  .seal-sub{
-    position:absolute;
-    bottom:16px;
-    left:0; right:0;
-    text-align:center;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:9px;
-    letter-spacing:0.12em;
-    color:var(--brass);
-  }
+        /* =========================================================
+           ROOT
+        ========================================================= */
 
-  section{ padding:56px 0; border-bottom:1px solid var(--rule); }
-  section:last-of-type{ border-bottom:none; }
+        :root {
+            --bg: #f5f2ea;
+            --surface: #ffffff;
+            --surface-2: #eeeadf;
 
-  .section-head{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    margin-bottom:32px;
-    gap:20px;
-  }
-  h2.section-title{
-    font-family:'Lora', serif;
-    font-weight:600;
-    font-size:26px;
-    margin:0;
-  }
-  .section-index{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:13px;
-    color:var(--ink-soft);
-  }
+            --text: #17231c;
+            --text-soft: #5d665f;
 
-  .about-body{ max-width:64ch; font-size:16px; color:var(--ink-soft); }
-  .about-body strong{ color:var(--ink); font-weight:500; }
+            --green: #214d3b;
+            --green-dark: #16372b;
+            --green-light: #e4eee8;
 
-  /* Experience — ledger entries */
-  .entry{
-    display:grid;
-    grid-template-columns:150px 1fr;
-    gap:24px;
-    padding:26px 0;
-    border-top:1px solid var(--rule);
-  }
-  .entry:first-child{ border-top:none; padding-top:0; }
-  .entry-dates{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:13px;
-    color:var(--brass);
-    padding-top:2px;
-  }
-  .entry-role{
-    font-family:'Lora', serif;
-    font-size:18.5px;
-    font-weight:600;
-    margin:0 0 2px 0;
-  }
-  .entry-org{
-    font-size:14.5px;
-    color:var(--ink-soft);
-    margin:0 0 14px 0;
-  }
-  .entry ul{
-    margin:0;
-    padding-left:18px;
-    color:var(--ink-soft);
-    font-size:15px;
-  }
-  .entry li{ margin-bottom:6px; }
-  .entry li::marker{ color:var(--brass); }
+            --gold: #b28a43;
+            --gold-light: #ead9b5;
 
-  /* Skills — line items */
-  .ledger-cols{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-  }
-  .ledger-col h3{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12.5px;
-    letter-spacing:0.04em;
-    color:var(--ink-soft);
-    font-weight:400;
-    margin:0 0 14px 0;
-    padding-bottom:10px;
-    border-bottom:1px solid var(--rule-strong);
-  }
-  .line-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    padding:9px 0;
-    border-bottom:1px dotted var(--rule);
-    font-size:15px;
-  }
-  .line-item span.check{
-    font-family:'IBM Plex Mono', monospace;
-    color:var(--forest);
-    font-size:13px;
-  }
+            --border: #ddd6c7;
 
-  /* Education */
-  .edu-item{
-    display:grid;
-    grid-template-columns:90px 1fr;
-    gap:20px;
-    padding:14px 0;
-    border-top:1px solid var(--rule);
-  }
-  .edu-item:first-child{ border-top:none; }
-  .edu-year{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:13px;
-    color:var(--brass);
-  }
-  .edu-school{ font-size:14.5px; color:var(--ink-soft); }
-  .edu-name{ font-weight:500; }
+            --shadow:
+                0 20px 60px rgba(22, 55, 43, 0.08);
 
-  .tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; }
-  .tag{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    padding:5px 10px;
-    border:1px solid var(--rule-strong);
-    border-radius:3px;
-    color:var(--ink-soft);
-  }
+            --radius: 18px;
 
-  footer{
-    padding:52px 0 60px 0;
-  }
-  .footer-inner{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    flex-wrap:wrap;
-    gap:28px;
-  }
-  .contact-list{ list-style:none; padding:0; margin:0; font-size:15px; }
-  .contact-list li{ margin-bottom:8px; }
-  .contact-list a{ text-decoration:none; border-bottom:1px solid var(--rule-strong); }
-  .contact-list a:hover{ border-color:var(--brass); color:var(--brass); }
-  .signoff{
-    font-family:'Lora', serif;
-    font-style:italic;
-    font-size:14.5px;
-    color:var(--ink-soft);
-    max-width:38ch;
-    text-align:right;
-  }
+            --transition: 0.3s ease;
+        }
 
-  @media (max-width:640px){
-    .wrap{ padding:0 20px; }
-    header.hero{ padding-top:52px; }
-    .masthead{ flex-direction:column-reverse; }
-    .entry{ grid-template-columns:1fr; gap:6px; }
-    .ledger-cols{ grid-template-columns:1fr; gap:28px; }
-    .edu-item{ grid-template-columns:1fr; gap:4px; }
-    .footer-inner{ flex-direction:column; align-items:flex-start; }
-    .signoff{ text-align:left; }
-  }
+        [data-theme="dark"] {
 
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior:auto; }
-  }
-</style>
+            --bg: #101713;
+            --surface: #172019;
+            --surface-2: #1d2921;
+
+            --text: #f1eee5;
+            --text-soft: #aab3ab;
+
+            --green: #79a88e;
+            --green-dark: #9bc2aa;
+            --green-light: #20372b;
+
+            --gold: #d2ad69;
+            --gold-light: #493d26;
+
+            --border: #303b33;
+
+            --shadow:
+                0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            transition:
+                background var(--transition),
+                color var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: #fff;
+        }
+
+
+        /* =========================================================
+           CONTAINER
+        ========================================================= */
+
+        .container {
+            width: min(1180px, calc(100% - 40px));
+            margin: auto;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+
+            background: rgba(245, 242, 234, 0.86);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid transparent;
+
+            transition: var(--transition);
+        }
+
+        [data-theme="dark"] .navbar {
+            background: rgba(16, 23, 19, 0.88);
+        }
+
+        .navbar.scrolled {
+            border-bottom-color: var(--border);
+        }
+
+        .nav-inner {
+            height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 23px;
+            font-weight: 700;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+
+            border-radius: 50%;
+
+            display: grid;
+            place-items: center;
+
+            background: var(--green);
+            color: #fff;
+
+            font-family: "Playfair Display", serif;
+            font-size: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-soft);
+            font-size: 14px;
+            font-weight: 500;
+
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .theme-btn {
+            width: 40px;
+            height: 40px;
+
+            border: 1px solid var(--border);
+            background: var(--surface);
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            color: var(--text);
+
+            transition: var(--transition);
+        }
+
+        .theme-btn:hover {
+            border-color: var(--gold);
+            transform: rotate(15deg);
+        }
+
+        .mobile-menu {
+            display: none;
+
+            border: 1px solid var(--border);
+            background: var(--surface);
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+            color: var(--text);
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            padding-top: 130px;
+            padding-bottom: 80px;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(178, 138, 67, 0.12),
+                    transparent 65%
+                );
+
+            right: -150px;
+            top: 80px;
+
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.2fr
+                0.8fr;
+
+            align-items: center;
+
+            gap: 80px;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            font-family: "Space Mono", monospace;
+
+            font-size: 12px;
+
+            color: var(--gold);
+
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+
+            margin-bottom: 22px;
+        }
+
+        .hero-label::before {
+            content: "";
+
+            width: 30px;
+            height: 1px;
+
+            background: var(--gold);
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size:
+                clamp(50px, 7vw, 82px);
+
+            line-height: 1.02;
+
+            letter-spacing: -0.035em;
+
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: var(--green);
+        }
+
+        [data-theme="dark"] .hero h1 span {
+            color: var(--green);
+        }
+
+        .hero-role {
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            font-style: italic;
+
+            color: var(--gold);
+
+            margin-bottom: 24px;
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            color: var(--text-soft);
+
+            font-size: 17px;
+
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
+        }
+
+
+        /* =========================================================
+           BUTTONS
+        ========================================================= */
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 13px 21px;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            border: 1px solid transparent;
+
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--green-dark);
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 25px rgba(33, 77, 59, 0.2);
+        }
+
+        .btn-outline {
+            border-color: var(--border);
+            background: var(--surface);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================================
+           PROFILE CARD
+        ========================================================= */
+
+        .profile-wrap {
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-card {
+            width: min(390px, 100%);
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: 28px;
+
+            padding: 16px;
+
+            box-shadow: var(--shadow);
+
+            transform: rotate(2deg);
+
+            transition: var(--transition);
+        }
+
+        .profile-card:hover {
+            transform: rotate(0deg) translateY(-8px);
+        }
+
+        .profile-image {
+            aspect-ratio: 0.85;
+
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            background: var(--green-light);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .profile-info {
+            padding: 20px 8px 8px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .profile-info h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 20px;
+        }
+
+        .profile-info p {
+            color: var(--text-soft);
+
+            font-size: 12px;
+        }
+
+        .profile-badge {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 50%;
+
+            background: var(--gold-light);
+
+            color: var(--gold);
+
+            display: grid;
+            place-items: center;
+
+            font-size: 22px;
+        }
+
+
+        /* =========================================================
+           STATS
+        ========================================================= */
+
+        .stats {
+            padding: 0 0 80px;
+        }
+
+        .stats-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .stat-card {
+            padding: 28px;
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .stat-number {
+            font-family: "Playfair Display", serif;
+
+            font-size: 42px;
+
+            color: var(--green);
+
+            line-height: 1;
+
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-soft);
+            font-size: 14px;
+        }
+
+
+        /* =========================================================
+           SECTION
+        ========================================================= */
+
+        section {
+            padding: 100px 0;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .section-heading {
+            display: grid;
+
+            grid-template-columns:
+                0.35fr
+                1fr;
+
+            gap: 50px;
+
+            margin-bottom: 60px;
+        }
+
+        .section-number {
+            font-family: "Space Mono", monospace;
+
+            color: var(--gold);
+
+            font-size: 12px;
+
+            padding-top: 9px;
+        }
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(35px, 5vw, 52px);
+
+            line-height: 1.1;
+
+            margin-bottom: 14px;
+        }
+
+        .section-subtitle {
+            color: var(--text-soft);
+
+            max-width: 620px;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 70px;
+        }
+
+        .about-text {
+            color: var(--text-soft);
+
+            font-size: 17px;
+        }
+
+        .about-text p + p {
+            margin-top: 18px;
+        }
+
+        .about-text strong {
+            color: var(--text);
+        }
+
+        .about-highlights {
+            display: grid;
+
+            gap: 14px;
+        }
+
+        .highlight {
+            padding: 21px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            background: var(--surface);
+
+            display: flex;
+
+            gap: 15px;
+
+            align-items: flex-start;
+
+            transition: var(--transition);
+        }
+
+        .highlight:hover {
+            transform: translateX(5px);
+
+            border-color: var(--gold);
+        }
+
+        .highlight-icon {
+            width: 42px;
+            height: 42px;
+
+            flex-shrink: 0;
+
+            border-radius: 10px;
+
+            background: var(--green-light);
+
+            display: grid;
+            place-items: center;
+
+            font-size: 19px;
+        }
+
+        .highlight h3 {
+            font-size: 15px;
+            margin-bottom: 3px;
+        }
+
+        .highlight p {
+            color: var(--text-soft);
+            font-size: 13px;
+        }
+
+
+        /* =========================================================
+           EXPERIENCE
+        ========================================================= */
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+
+            left: 180px;
+            top: 0;
+            bottom: 0;
+
+            width: 1px;
+
+            background: var(--border);
+        }
+
+        .experience-item {
+            display: grid;
+
+            grid-template-columns:
+                150px
+                1fr;
+
+            gap: 60px;
+
+            padding: 0 0 55px;
+
+            position: relative;
+        }
+
+        .experience-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .experience-date {
+            font-family: "Space Mono", monospace;
+
+            font-size: 12px;
+
+            color: var(--gold);
+
+            padding-top: 5px;
+
+            text-align: right;
+        }
+
+        .experience-content {
+            position: relative;
+        }
+
+        .experience-content::before {
+            content: "";
+
+            position: absolute;
+
+            left: -66px;
+            top: 5px;
+
+            width: 11px;
+            height: 11px;
+
+            background: var(--gold);
+
+            border-radius: 50%;
+
+            border: 3px solid var(--bg);
+
+            box-shadow:
+                0 0 0 1px var(--gold);
+        }
+
+        .experience-role {
+            font-family: "Playfair Display", serif;
+
+            font-size: 26px;
+
+            margin-bottom: 3px;
+        }
+
+        .experience-company {
+            color: var(--gold);
+
+            font-size: 14px;
+            font-weight: 600;
+
+            margin-bottom: 18px;
+        }
+
+        .experience-content ul {
+            padding-left: 18px;
+
+            color: var(--text-soft);
+
+            font-size: 15px;
+        }
+
+        .experience-content li {
+            margin-bottom: 9px;
+        }
+
+        .experience-content li::marker {
+            color: var(--gold);
+        }
+
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            padding: 30px;
+
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow: var(--shadow);
+
+            border-color: var(--gold);
+        }
+
+        .skill-card h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 23px;
+
+            margin-bottom: 22px;
+        }
+
+        .skill-list {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .skill {
+            padding: 9px 13px;
+
+            border-radius: 8px;
+
+            background: var(--green-light);
+
+            color: var(--green);
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+        [data-theme="dark"] .skill {
+            color: #b9d8c5;
+        }
+
+
+        /* =========================================================
+           EDUCATION
+        ========================================================= */
+
+        .education-list {
+            display: grid;
+
+            gap: 14px;
+        }
+
+        .education-item {
+            display: grid;
+
+            grid-template-columns:
+                100px
+                1fr
+                100px;
+
+            gap: 20px;
+
+            align-items: center;
+
+            padding: 22px;
+
+            border: 1px solid var(--border);
+
+            background: var(--surface);
+
+            border-radius: 14px;
+
+            transition: var(--transition);
+        }
+
+        .education-item:hover {
+            border-color: var(--gold);
+
+            transform: translateX(5px);
+        }
+
+        .education-year {
+            font-family: "Space Mono", monospace;
+
+            color: var(--gold);
+
+            font-size: 12px;
+        }
+
+        .education-degree {
+            font-family: "Playfair Display", serif;
+
+            font-size: 20px;
+        }
+
+        .education-school {
+            color: var(--text-soft);
+
+            font-size: 13px;
+
+            margin-top: 3px;
+        }
+
+        .education-type {
+            text-align: right;
+
+            font-size: 11px;
+
+            color: var(--text-soft);
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.08em;
+        }
+
+
+        /* =========================================================
+           ADDITIONAL
+        ========================================================= */
+
+        .additional {
+            margin-top: 30px;
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .additional span {
+            padding: 8px 13px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 50px;
+
+            color: var(--text-soft);
+
+            font-size: 12px;
+
+            background: var(--surface);
+        }
+
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .contact-box {
+            position: relative;
+
+            overflow: hidden;
+
+            background: var(--green);
+
+            color: #fff;
+
+            border-radius: 26px;
+
+            padding: 65px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                auto;
+
+            align-items: center;
+
+            gap: 50px;
+        }
+
+        .contact-box::before {
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            right: -100px;
+            top: -130px;
+        }
+
+        .contact-box h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(35px, 5vw, 55px);
+
+            line-height: 1.1;
+
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: rgba(255,255,255,0.75);
+
+            max-width: 580px;
+        }
+
+        .contact-buttons {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+        .contact-buttons .btn {
+            background: #fff;
+
+            color: var(--green);
+
+            white-space: nowrap;
+        }
+
+        .contact-buttons .btn:hover {
+            background: var(--gold-light);
+
+            color: var(--green-dark);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 45px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            color: var(--text-soft);
+
+            font-size: 13px;
+        }
+
+        .footer-brand {
+            font-family: "Playfair Display", serif;
+
+            color: var(--text);
+
+            font-size: 18px;
+        }
+
+
+        /* =========================================================
+           REVEAL ANIMATION
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(25px);
+
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+            }
+
+            .profile-wrap {
+                order: -1;
+            }
+
+            .profile-card {
+                width: min(330px, 100%);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+            }
+
+            .section-heading {
+                grid-template-columns: 1fr;
+
+                gap: 8px;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+
+            .experience-item {
+                grid-template-columns: 1fr;
+
+                gap: 8px;
+            }
+
+            .experience-date {
+                text-align: left;
+            }
+
+            .experience-content::before {
+                display: none;
+            }
+
+            .contact-box {
+                grid-template-columns: 1fr;
+
+                padding: 45px 30px;
+            }
+
+            .contact-buttons {
+                flex-direction: row;
+
+                flex-wrap: wrap;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .container {
+                width: min(100% - 30px, 1180px);
+            }
+
+            .nav-inner {
+                height: 68px;
+            }
+
+            .hero {
+                padding-top: 110px;
+
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 52px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-item {
+                grid-template-columns: 70px 1fr;
+            }
+
+            .education-type {
+                display: none;
+            }
+
+            .contact-box {
+                border-radius: 18px;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .contact-buttons .btn {
+                width: 100%;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+        }
+
+    </style>
 </head>
-<body>
 
-<div class="wrap">
-  <header class="hero ledger-bg">
-    <div class="masthead">
-      <div class="masthead-text">
-        <div class="eyebrow-line">Coimbatore, Tamil Nadu</div>
-        <h1 class="name">Shilpa Jerlin</h1>
-        <p class="role-line">Accountant</p>
-        <p class="lede">I keep the books balanced, the filings on time, and the numbers easy for someone else to trust. Three years across manufacturing and coatings, working in Tally Prime and Excel.</p>
-        <div class="hero-actions">
-          <a class="btn btn-solid" href="mailto:jerlin.shill@gmail.com">Write to me</a>
-          <a class="btn btn-outline" href="tel:+919840640291">+91 98406 40291</a>
+
+<body data-theme="light">
+
+
+<!-- ============================================================
+     NAVIGATION
+============================================================= -->
+
+<nav class="navbar" id="navbar">
+
+    <div class="container nav-inner">
+
+        <a href="#home" class="logo">
+
+            <span class="logo-mark">SJ</span>
+
+            <span>Shilpa Jerlin</span>
+
+        </a>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#experience">Experience</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#education">Education</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+
+        <div class="nav-actions">
+
+            <button
+                class="theme-btn"
+                id="themeBtn"
+                aria-label="Toggle dark mode">
+
+                ☾
+
+            </button>
+
+            <button
+                class="mobile-menu"
+                onclick="scrollToContact()"
+                aria-label="Contact">
+
+                ✉
+
+            </button>
+
         </div>
-      </div>
-      <div class="seal">
-        <!-- <span class="seal-mono">SJ</span>
-        <span class="seal-sub">ACCOUNTANT</span> -->
-        <img src="shilpa.jpg" alt="ACCOUNTANT" style=" width: 100%; border-radius: 100%;" />
-      </div>
-    </div>
-  </header>
 
-  <section id="about">
-    <div class="section-head">
-      <h2 class="section-title">About</h2>
-      <span class="section-index">01</span>
-    </div>
-    <p class="about-body">
-      I'm an accountant based in Coimbatore, currently with <strong>IV-PRO Technologies</strong>. My work sits at the point where a business's day-to-day transactions become a report someone can act on — payables and receivables, salary records, cash flow, and the documentation an audit needs. I like the parts of the job that reward precision: reconciling a ledger to the last rupee, catching a discrepancy before it becomes a problem, and finding small places to cut cost without cutting corners.
-    </p>
-  </section>
-
-  <section id="experience">
-    <div class="section-head">
-      <h2 class="section-title">Experience</h2>
-      <span class="section-index">02</span>
     </div>
 
-    <div class="entry">
-      <div class="entry-dates">Sep 2024 —<br>Present</div>
-      <div>
-        <h3 class="entry-role">Accountant</h3>
-        <p class="entry-org">IV-Pro Technologies, Coimbatore</p>
-        <ul>
-          <li>Prepare financial statements and reports, and assist with tax preparation and filings</li>
-          <li>Manage accounts payable and receivable in Tally Prime, including cheque transactions and payments</li>
-          <li>Support audits with documentation, monitor cash flow, and flag cost-saving opportunities</li>
-          <li>Maintain salary records in Excel and work with cross-functional teams on financial decisions</li>
-        </ul>
-      </div>
+</nav>
+
+
+
+<!-- ============================================================
+     HERO
+============================================================= -->
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="container hero-grid">
+
+
+        <div class="hero-content reveal">
+
+            <div class="hero-label">
+
+                Accountant · Coimbatore
+
+            </div>
+
+
+            <h1>
+
+                Shilpa
+                <span>Jerlin.</span>
+
+            </h1>
+
+
+            <div class="hero-role">
+
+                Precision behind every number.
+
+            </div>
+
+
+            <p class="hero-description">
+
+                I keep financial records accurate, reports clear,
+                filings on time and business numbers easy to trust.
+                With experience across manufacturing and technology,
+                I work with Tally Prime, Excel, accounts payable,
+                accounts receivable and financial reporting.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="mailto:jerlin.shill@gmail.com"
+                    class="btn btn-primary">
+
+                    ✉ Write to me
+
+                </a>
+
+
+                <a
+                    href="tel:+919840640291"
+                    class="btn btn-outline">
+
+                    ☎ +91 98406 40291
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="profile-wrap reveal">
+
+            <div class="profile-card">
+
+                <div class="profile-image">
+
+                    <img
+                        src="shilpa.jpg"
+                        alt="Shilpa Jerlin - Accountant">
+
+                </div>
+
+
+                <div class="profile-info">
+
+                    <div>
+
+                        <h3>Shilpa Jerlin</h3>
+
+                        <p>Accountant · Coimbatore</p>
+
+                    </div>
+
+
+                    <div class="profile-badge">
+
+                        ₹
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="entry">
-      <div class="entry-dates">Jul 2021 —<br>Aug 2024</div>
-      <div>
-        <h3 class="entry-role">Accountant</h3>
-        <p class="entry-org">Dhanam Coats, Siddhapudur, Coimbatore</p>
-        <ul>
-          <li>Processed sales and purchase invoices for multiple clients</li>
-          <li>Kept daily financial reports current for executive use, and maintained salary records in Excel</li>
-          <li>Handled cheques and payment processing, and stayed in regular contact with clients to resolve account issues</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+</section>
 
-  <section id="skills">
-    <div class="section-head">
-      <h2 class="section-title">Skills</h2>
-      <span class="section-index">03</span>
-    </div>
-    <div class="ledger-cols">
-      <div class="ledger-col">
-        <h3>Technical</h3>
-        <div class="line-item"><span>Tally Prime</span><span class="check">reconciled</span></div>
-        <div class="line-item"><span>Advanced Excel</span><span class="check">reconciled</span></div>
-        <div class="line-item"><span>MS Word &amp; PowerPoint</span><span class="check">reconciled</span></div>
-        <div class="line-item"><span>Accounts payable / receivable</span><span class="check">reconciled</span></div>
-        <div class="line-item"><span>Financial reporting</span><span class="check">reconciled</span></div>
-      </div>
-      <div class="ledger-col">
-        <h3>Working style</h3>
-        <div class="line-item"><span>Attention to detail</span><span class="check">✓</span></div>
-        <div class="line-item"><span>Client communication</span><span class="check">✓</span></div>
-        <div class="line-item"><span>Organization &amp; planning</span><span class="check">✓</span></div>
-        <div class="line-item"><span>Working under pressure</span><span class="check">✓</span></div>
-        <div class="line-item"><span>Initiative &amp; problem-solving</span><span class="check">✓</span></div>
-      </div>
-    </div>
-  </section>
 
-  <section id="education">
-    <div class="section-head">
-      <h2 class="section-title">Education</h2>
-      <span class="section-index">04</span>
-    </div>
-    <div class="edu-item">
-      <div class="edu-year">2021</div>
-      <div>
-        <div class="edu-name">B.Com with CA</div>
-        <div class="edu-school">Bishop Appasamy College, Coimbatore</div>
-      </div>
-    </div>
-    <div class="edu-item">
-      <div class="edu-year">2018</div>
-      <div>
-        <div class="edu-name">Higher Secondary School</div>
-        <div class="edu-school">R.K. Shree Ramalingam School, Coimbatore</div>
-      </div>
-    </div>
-    <div class="edu-item">
-      <div class="edu-year">2016</div>
-      <div>
-        <div class="edu-name">SSLC</div>
-        <div class="edu-school">Corporation High School, Coimbatore</div>
-      </div>
+
+<!-- ============================================================
+     STATS
+============================================================= -->
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat-card reveal">
+
+                <div class="stat-number">
+
+                    3+
+
+                </div>
+
+                <div class="stat-label">
+
+                    Years of professional accounting experience
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card reveal">
+
+                <div class="stat-number">
+
+                    2
+
+                </div>
+
+                <div class="stat-label">
+
+                    Organizations across accounting & business operations
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card reveal">
+
+                <div class="stat-number">
+
+                    100%
+
+                </div>
+
+                <div class="stat-label">
+
+                    Focus on accuracy, documentation & financial discipline
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="tags">
-      <span class="tag">Typewriting — Lower Grade, English</span>
-      <span class="tag">Rotary Club Meeting, Nirmala College</span>
-      <span class="tag">Intl. Seminar on Commerce, Bishop Appasamy College</span>
-    </div>
-  </section>
+</section>
 
-  <footer class="ledger-bg">
-    <div class="footer-inner">
-      <ul class="contact-list">
-        <li><a href="mailto:jerlin.shill@gmail.com">jerlin.shill@gmail.com</a></li>
-        <li><a href="tel:+919840640291">+91 98406 40291</a></li>
-        <li>9/4 Duraisamy Layout 2, Avarampalayam, Coimbatore – 641004</li>
-      </ul>
-      <p class="signoff">I hereby declare the figures above are true to the best of my knowledge — and I'd be glad to put them to work for you.</p>
+
+
+<!-- ============================================================
+     ABOUT
+============================================================= -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-number">
+                01 / ABOUT
+            </div>
+
+            <div>
+
+                <h2 class="section-title">
+                    Numbers tell a story.
+                    I make sure they're accurate.
+                </h2>
+
+                <p class="section-subtitle">
+
+                    Accounting is more than recording transactions.
+                    It is about creating reliable information that
+                    helps people make confident business decisions.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-grid">
+
+
+            <div class="about-text reveal">
+
+                <p>
+
+                    I'm an accountant based in Coimbatore,
+                    currently with <strong>IV-Pro Technologies</strong>.
+
+                    My work sits at the point where everyday
+                    business transactions become financial information
+                    that people can act on.
+
+                </p>
+
+
+                <p>
+
+                    I work across payables and receivables,
+                    salary records, cash flow, financial reporting,
+                    documentation and audit support.
+
+                </p>
+
+
+                <p>
+
+                    I enjoy work that rewards precision —
+                    reconciling records carefully, identifying
+                    discrepancies early and maintaining organized
+                    financial documentation.
+
+                </p>
+
+            </div>
+
+
+            <div class="about-highlights reveal">
+
+
+                <div class="highlight">
+
+                    <div class="highlight-icon">
+                        ₹
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Financial Accuracy
+                        </h3>
+
+                        <p>
+                            Careful transaction processing and
+                            reconciliation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="highlight">
+
+                    <div class="highlight-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Reliable Reporting
+                        </h3>
+
+                        <p>
+                            Clear financial reports prepared for
+                            business decisions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="highlight">
+
+                    <div class="highlight-icon">
+                        ◈
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Audit Support
+                        </h3>
+
+                        <p>
+                            Organized documentation and
+                            financial records.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="highlight">
+
+                    <div class="highlight-icon">
+                        +
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Cost Awareness
+                        </h3>
+
+                        <p>
+                            Identifying opportunities for better
+                            financial efficiency.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
     </div>
-  </footer>
-</div>
+
+</section>
+
+
+
+<!-- ============================================================
+     EXPERIENCE
+============================================================= -->
+
+<section id="experience">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-number">
+                02 / EXPERIENCE
+            </div>
+
+            <div>
+
+                <h2 class="section-title">
+                    Professional journey
+                </h2>
+
+                <p class="section-subtitle">
+
+                    Experience across accounting operations,
+                    manufacturing and technology environments.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <!-- IV-PRO -->
+
+            <div class="experience-item reveal">
+
+                <div class="experience-date">
+
+                    SEP 2024 — PRESENT
+
+                </div>
+
+
+                <div class="experience-content">
+
+                    <h3 class="experience-role">
+
+                        Accountant
+
+                    </h3>
+
+
+                    <div class="experience-company">
+
+                        IV-Pro Technologies · Coimbatore
+
+                    </div>
+
+
+                    <ul>
+
+                        <li>
+                            Prepare financial statements and reports,
+                            and assist with tax preparation and filings.
+                        </li>
+
+                        <li>
+                            Manage accounts payable and receivable
+                            in Tally Prime, including cheque
+                            transactions and payments.
+                        </li>
+
+                        <li>
+                            Support audits through organized
+                            documentation and financial records.
+                        </li>
+
+                        <li>
+                            Monitor cash flow and identify
+                            cost-saving opportunities.
+                        </li>
+
+                        <li>
+                            Maintain salary records in Excel and
+                            collaborate with cross-functional teams.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DHANAM COATS -->
+
+            <div class="experience-item reveal">
+
+                <div class="experience-date">
+
+                    JUL 2021 — AUG 2024
+
+                </div>
+
+
+                <div class="experience-content">
+
+                    <h3 class="experience-role">
+
+                        Accountant
+
+                    </h3>
+
+
+                    <div class="experience-company">
+
+                        Dhanam Coats · Siddhapudur, Coimbatore
+
+                    </div>
+
+
+                    <ul>
+
+                        <li>
+                            Processed sales and purchase invoices
+                            for multiple clients.
+                        </li>
+
+                        <li>
+                            Maintained daily financial reports
+                            for executive use.
+                        </li>
+
+                        <li>
+                            Maintained salary records using Excel.
+                        </li>
+
+                        <li>
+                            Handled cheques and payment processing.
+                        </li>
+
+                        <li>
+                            Communicated with clients to resolve
+                            account-related issues.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     SKILLS
+============================================================= -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-number">
+                03 / SKILLS
+            </div>
+
+            <div>
+
+                <h2 class="section-title">
+                    Tools & strengths
+                </h2>
+
+                <p class="section-subtitle">
+
+                    A practical combination of accounting software,
+                    reporting tools and professional working skills.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill-card reveal">
+
+                <h3>
+                    Accounting & Technical
+                </h3>
+
+
+                <div class="skill-list">
+
+                    <span class="skill">
+                        Tally Prime
+                    </span>
+
+                    <span class="skill">
+                        Advanced Excel
+                    </span>
+
+                    <span class="skill">
+                        Financial Reporting
+                    </span>
+
+                    <span class="skill">
+                        Accounts Payable
+                    </span>
+
+                    <span class="skill">
+                        Accounts Receivable
+                    </span>
+
+                    <span class="skill">
+                        Salary Records
+                    </span>
+
+                    <span class="skill">
+                        MS Word
+                    </span>
+
+                    <span class="skill">
+                        PowerPoint
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card reveal">
+
+                <h3>
+                    Professional Strengths
+                </h3>
+
+
+                <div class="skill-list">
+
+                    <span class="skill">
+                        Attention to Detail
+                    </span>
+
+                    <span class="skill">
+                        Client Communication
+                    </span>
+
+                    <span class="skill">
+                        Organization
+                    </span>
+
+                    <span class="skill">
+                        Planning
+                    </span>
+
+                    <span class="skill">
+                        Problem Solving
+                    </span>
+
+                    <span class="skill">
+                        Initiative
+                    </span>
+
+                    <span class="skill">
+                        Working Under Pressure
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     EDUCATION
+============================================================= -->
+
+<section id="education">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-number">
+                04 / EDUCATION
+            </div>
+
+            <div>
+
+                <h2 class="section-title">
+                    Education & learning
+                </h2>
+
+                <p class="section-subtitle">
+
+                    Academic foundation supported by additional
+                    commerce and professional learning activities.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="education-list">
+
+
+            <div class="education-item reveal">
+
+                <div class="education-year">
+                    2021
+                </div>
+
+                <div>
+
+                    <div class="education-degree">
+                        B.Com with CA
+                    </div>
+
+                    <div class="education-school">
+                        Bishop Appasamy College, Coimbatore
+                    </div>
+
+                </div>
+
+                <div class="education-type">
+                    Degree
+                </div>
+
+            </div>
+
+
+            <div class="education-item reveal">
+
+                <div class="education-year">
+                    2018
+                </div>
+
+                <div>
+
+                    <div class="education-degree">
+                        Higher Secondary School
+                    </div>
+
+                    <div class="education-school">
+                        R.K. Shree Ramalingam School, Coimbatore
+                    </div>
+
+                </div>
+
+                <div class="education-type">
+                    School
+                </div>
+
+            </div>
+
+
+            <div class="education-item reveal">
+
+                <div class="education-year">
+                    2016
+                </div>
+
+                <div>
+
+                    <div class="education-degree">
+                        SSLC
+                    </div>
+
+                    <div class="education-school">
+                        Corporation High School, Coimbatore
+                    </div>
+
+                </div>
+
+                <div class="education-type">
+                    School
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="additional reveal">
+
+            <span>
+                Typewriting — Lower Grade, English
+            </span>
+
+            <span>
+                Rotary Club Meeting — Nirmala College
+            </span>
+
+            <span>
+                International Seminar on Commerce
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+     CONTACT
+============================================================= -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="contact-box reveal">
+
+            <div>
+
+                <h2>
+                    Let's work with numbers
+                    that matter.
+                </h2>
+
+                <p>
+
+                    Whether you're looking for an accountant,
+                    financial operations support or someone who
+                    values accuracy and organized records,
+                    I'd be happy to connect.
+
+                </p>
+
+            </div>
+
+
+            <div class="contact-buttons">
+
+                <a
+                    href="mailto:jerlin.shill@gmail.com"
+                    class="btn">
+
+                    ✉ Email Me
+
+                </a>
+
+
+                <a
+                    href="tel:+919840640291"
+                    class="btn">
+
+                    ☎ Call Me
+
+                </a>
+
+
+                <a
+                    href="https://wa.me/919840640291"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn">
+
+                    WhatsApp
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- ============================================================
+     FOOTER
+============================================================= -->
+
+<footer>
+
+    <div class="container footer-inner">
+
+        <div>
+
+            <div class="footer-brand">
+                Shilpa Jerlin
+            </div>
+
+            <div>
+                Accountant · Coimbatore, Tamil Nadu
+            </div>
+
+        </div>
+
+
+        <div>
+
+            © <span id="year"></span>
+            Shilpa Jerlin. All rights reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================= -->
+
+<script>
+
+    /* =========================================================
+       NAVBAR SCROLL EFFECT
+    ========================================================= */
+
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 20) {
+
+            navbar.classList.add("scrolled");
+
+        } else {
+
+            navbar.classList.remove("scrolled");
+
+        }
+
+    });
+
+
+
+    /* =========================================================
+       DARK MODE
+    ========================================================= */
+
+    const themeBtn = document.getElementById("themeBtn");
+
+    const savedTheme =
+        localStorage.getItem("shilpa-theme");
+
+    if (savedTheme) {
+
+        document.body.setAttribute(
+            "data-theme",
+            savedTheme
+        );
+
+        updateThemeIcon();
+
+    }
+
+
+    themeBtn.addEventListener("click", function () {
+
+        const current =
+            document.body.getAttribute("data-theme");
+
+        const newTheme =
+            current === "dark"
+                ? "light"
+                : "dark";
+
+        document.body.setAttribute(
+            "data-theme",
+            newTheme
+        );
+
+        localStorage.setItem(
+            "shilpa-theme",
+            newTheme
+        );
+
+        updateThemeIcon();
+
+    });
+
+
+    function updateThemeIcon() {
+
+        const theme =
+            document.body.getAttribute("data-theme");
+
+        themeBtn.textContent =
+            theme === "dark"
+                ? "☀"
+                : "☾";
+
+    }
+
+
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+
+    const observer =
+        new IntersectionObserver(
+
+            function (entries) {
+
+                entries.forEach(function (entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
+
+
+    revealElements.forEach(function (element) {
+
+        observer.observe(element);
+
+    });
+
+
+
+    /* =========================================================
+       CURRENT YEAR
+    ========================================================= */
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+
+
+    /* =========================================================
+       MOBILE CONTACT
+    ========================================================= */
+
+    function scrollToContact() {
+
+        document
+            .getElementById("contact")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+</script>
+
 
 </body>
 </html>
