@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shilpa Jerlin — Accountant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F1E6;
+    --paper-raised:#FBF8F1;
+    --ink:#1E2B24;
+    --ink-soft:#4A564C;
+    --rule:#D8CDB2;
+    --rule-strong:#B9A97F;
+    --brass:#96702E;
+    --brass-bright:#B9863E;
+    --forest:#2E4638;
+    --shadow: rgba(30,43,36,0.08);
+  }
+
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --paper:#161A16;
+      --paper-raised:#1D231D;
+      --ink:#EDE7D9;
+      --ink-soft:#B6AF9C;
+      --rule:#3A3F35;
+      --rule-strong:#4F5643;
+      --brass:#D2A15C;
+      --brass-bright:#E3B876;
+      --forest:#7FA189;
+      --shadow: rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#161A16;
+    --paper-raised:#1D231D;
+    --ink:#EDE7D9;
+    --ink-soft:#B6AF9C;
+    --rule:#3A3F35;
+    --rule-strong:#4F5643;
+    --brass:#D2A15C;
+    --brass-bright:#E3B876;
+    --forest:#7FA189;
+    --shadow: rgba(0,0,0,0.35);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; }
+  ::selection{ background:var(--brass); color:var(--paper); }
+
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* Ledger rule background texture for hero & footer */
+  .ledger-bg{
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 43px,
+      var(--rule) 43px,
+      var(--rule) 44px
+    );
+  }
+
+  header.hero{
+    padding-top:76px;
+    padding-bottom:56px;
+    border-bottom:1px solid var(--rule-strong);
+  }
+  .masthead{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:40px;
+    flex-wrap:wrap;
+  }
+  .masthead-text{ max-width:560px; }
+  .eyebrow-line{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--brass);
+    letter-spacing:0.02em;
+    margin-bottom:18px;
+  }
+  h1.name{
+    font-family:'Lora', serif;
+    font-weight:600;
+    font-size:clamp(38px, 6vw, 58px);
+    line-height:1.05;
+    margin:0 0 10px 0;
+    letter-spacing:-0.01em;
+  }
+  .role-line{
+    font-family:'Lora', serif;
+    font-style:italic;
+    font-size:20px;
+    color:var(--ink-soft);
+    margin:0 0 26px 0;
+  }
+  .lede{
+    font-size:16.5px;
+    color:var(--ink-soft);
+    max-width:52ch;
+    margin:0 0 30px 0;
+  }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 22px;
+    border-radius:3px;
+    font-size:14.5px;
+    font-weight:500;
+    text-decoration:none;
+    border:1px solid var(--forest);
+    transition: background 160ms ease, color 160ms ease;
+  }
+  .btn-solid{ background:var(--forest); color:var(--paper-raised); }
+  .btn-solid:hover{ background:var(--brass); border-color:var(--brass); }
+  .btn-outline{ background:transparent; color:var(--ink); border-color:var(--rule-strong); }
+  .btn-outline:hover{ border-color:var(--forest); }
+
+  /* Seal / monogram, in place of a photograph */
+  .seal{
+    flex-shrink:0;
+    width:132px;
+    height:132px;
+    border-radius:50%;
+    border:2px solid var(--forest);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+  .seal::before{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border-radius:50%;
+    border:1px dashed var(--rule-strong);
+  }
+  .seal-mono{
+    font-family:'Lora', serif;
+    font-weight:600;
+    font-size:34px;
+    color:var(--forest);
+  }
+  .seal-sub{
+    position:absolute;
+    bottom:16px;
+    left:0; right:0;
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9px;
+    letter-spacing:0.12em;
+    color:var(--brass);
+  }
+
+  section{ padding:56px 0; border-bottom:1px solid var(--rule); }
+  section:last-of-type{ border-bottom:none; }
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:32px;
+    gap:20px;
+  }
+  h2.section-title{
+    font-family:'Lora', serif;
+    font-weight:600;
+    font-size:26px;
+    margin:0;
+  }
+  .section-index{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+
+  .about-body{ max-width:64ch; font-size:16px; color:var(--ink-soft); }
+  .about-body strong{ color:var(--ink); font-weight:500; }
+
+  /* Experience — ledger entries */
+  .entry{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:24px;
+    padding:26px 0;
+    border-top:1px solid var(--rule);
+  }
+  .entry:first-child{ border-top:none; padding-top:0; }
+  .entry-dates{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--brass);
+    padding-top:2px;
+  }
+  .entry-role{
+    font-family:'Lora', serif;
+    font-size:18.5px;
+    font-weight:600;
+    margin:0 0 2px 0;
+  }
+  .entry-org{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    margin:0 0 14px 0;
+  }
+  .entry ul{
+    margin:0;
+    padding-left:18px;
+    color:var(--ink-soft);
+    font-size:15px;
+  }
+  .entry li{ margin-bottom:6px; }
+  .entry li::marker{ color:var(--brass); }
+
+  /* Skills — line items */
+  .ledger-cols{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+  }
+  .ledger-col h3{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.04em;
+    color:var(--ink-soft);
+    font-weight:400;
+    margin:0 0 14px 0;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--rule-strong);
+  }
+  .line-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:9px 0;
+    border-bottom:1px dotted var(--rule);
+    font-size:15px;
+  }
+  .line-item span.check{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--forest);
+    font-size:13px;
+  }
+
+  /* Education */
+  .edu-item{
+    display:grid;
+    grid-template-columns:90px 1fr;
+    gap:20px;
+    padding:14px 0;
+    border-top:1px solid var(--rule);
+  }
+  .edu-item:first-child{ border-top:none; }
+  .edu-year{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--brass);
+  }
+  .edu-school{ font-size:14.5px; color:var(--ink-soft); }
+  .edu-name{ font-weight:500; }
+
+  .tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    padding:5px 10px;
+    border:1px solid var(--rule-strong);
+    border-radius:3px;
+    color:var(--ink-soft);
+  }
+
+  footer{
+    padding:52px 0 60px 0;
+  }
+  .footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:28px;
+  }
+  .contact-list{ list-style:none; padding:0; margin:0; font-size:15px; }
+  .contact-list li{ margin-bottom:8px; }
+  .contact-list a{ text-decoration:none; border-bottom:1px solid var(--rule-strong); }
+  .contact-list a:hover{ border-color:var(--brass); color:var(--brass); }
+  .signoff{
+    font-family:'Lora', serif;
+    font-style:italic;
+    font-size:14.5px;
+    color:var(--ink-soft);
+    max-width:38ch;
+    text-align:right;
+  }
+
+  @media (max-width:640px){
+    .wrap{ padding:0 20px; }
+    header.hero{ padding-top:52px; }
+    .masthead{ flex-direction:column-reverse; }
+    .entry{ grid-template-columns:1fr; gap:6px; }
+    .ledger-cols{ grid-template-columns:1fr; gap:28px; }
+    .edu-item{ grid-template-columns:1fr; gap:4px; }
+    .footer-inner{ flex-direction:column; align-items:flex-start; }
+    .signoff{ text-align:left; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero ledger-bg">
+    <div class="masthead">
+      <div class="masthead-text">
+        <div class="eyebrow-line">Coimbatore, Tamil Nadu</div>
+        <h1 class="name">Shilpa Jerlin</h1>
+        <p class="role-line">Accountant</p>
+        <p class="lede">I keep the books balanced, the filings on time, and the numbers easy for someone else to trust. Three years across manufacturing and coatings, working in Tally Prime and Excel.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="mailto:jerlin.shill@gmail.com">Write to me</a>
+          <a class="btn btn-outline" href="tel:+919840640291">+91 98406 40291</a>
+        </div>
+      </div>
+      <div class="seal">
+        <!-- <span class="seal-mono">SJ</span>
+        <span class="seal-sub">ACCOUNTANT</span> -->
+        <img src="shilpa.jpg" alt="ACCOUNTANT" style=" width: 100%; border-radius: 100%;" />
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="section-head">
+      <h2 class="section-title">About</h2>
+      <span class="section-index">01</span>
+    </div>
+    <p class="about-body">
+      I'm an accountant based in Coimbatore, currently with <strong>IV-PRO Technologies</strong>. My work sits at the point where a business's day-to-day transactions become a report someone can act on — payables and receivables, salary records, cash flow, and the documentation an audit needs. I like the parts of the job that reward precision: reconciling a ledger to the last rupee, catching a discrepancy before it becomes a problem, and finding small places to cut cost without cutting corners.
+    </p>
+  </section>
+
+  <section id="experience">
+    <div class="section-head">
+      <h2 class="section-title">Experience</h2>
+      <span class="section-index">02</span>
+    </div>
+
+    <div class="entry">
+      <div class="entry-dates">Sep 2024 —<br>Present</div>
+      <div>
+        <h3 class="entry-role">Accountant</h3>
+        <p class="entry-org">IV-Pro Technologies, Coimbatore</p>
+        <ul>
+          <li>Prepare financial statements and reports, and assist with tax preparation and filings</li>
+          <li>Manage accounts payable and receivable in Tally Prime, including cheque transactions and payments</li>
+          <li>Support audits with documentation, monitor cash flow, and flag cost-saving opportunities</li>
+          <li>Maintain salary records in Excel and work with cross-functional teams on financial decisions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-dates">Jul 2021 —<br>Aug 2024</div>
+      <div>
+        <h3 class="entry-role">Accountant</h3>
+        <p class="entry-org">Dhanam Coats, Siddhapudur, Coimbatore</p>
+        <ul>
+          <li>Processed sales and purchase invoices for multiple clients</li>
+          <li>Kept daily financial reports current for executive use, and maintained salary records in Excel</li>
+          <li>Handled cheques and payment processing, and stayed in regular contact with clients to resolve account issues</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head">
+      <h2 class="section-title">Skills</h2>
+      <span class="section-index">03</span>
+    </div>
+    <div class="ledger-cols">
+      <div class="ledger-col">
+        <h3>Technical</h3>
+        <div class="line-item"><span>Tally Prime</span><span class="check">reconciled</span></div>
+        <div class="line-item"><span>Advanced Excel</span><span class="check">reconciled</span></div>
+        <div class="line-item"><span>MS Word &amp; PowerPoint</span><span class="check">reconciled</span></div>
+        <div class="line-item"><span>Accounts payable / receivable</span><span class="check">reconciled</span></div>
+        <div class="line-item"><span>Financial reporting</span><span class="check">reconciled</span></div>
+      </div>
+      <div class="ledger-col">
+        <h3>Working style</h3>
+        <div class="line-item"><span>Attention to detail</span><span class="check">✓</span></div>
+        <div class="line-item"><span>Client communication</span><span class="check">✓</span></div>
+        <div class="line-item"><span>Organization &amp; planning</span><span class="check">✓</span></div>
+        <div class="line-item"><span>Working under pressure</span><span class="check">✓</span></div>
+        <div class="line-item"><span>Initiative &amp; problem-solving</span><span class="check">✓</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head">
+      <h2 class="section-title">Education</h2>
+      <span class="section-index">04</span>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2021</div>
+      <div>
+        <div class="edu-name">B.Com with CA</div>
+        <div class="edu-school">Bishop Appasamy College, Coimbatore</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2018</div>
+      <div>
+        <div class="edu-name">Higher Secondary School</div>
+        <div class="edu-school">R.K. Shree Ramalingam School, Coimbatore</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2016</div>
+      <div>
+        <div class="edu-name">SSLC</div>
+        <div class="edu-school">Corporation High School, Coimbatore</div>
+      </div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">Typewriting — Lower Grade, English</span>
+      <span class="tag">Rotary Club Meeting, Nirmala College</span>
+      <span class="tag">Intl. Seminar on Commerce, Bishop Appasamy College</span>
+    </div>
+  </section>
+
+  <footer class="ledger-bg">
+    <div class="footer-inner">
+      <ul class="contact-list">
+        <li><a href="mailto:jerlin.shill@gmail.com">jerlin.shill@gmail.com</a></li>
+        <li><a href="tel:+919840640291">+91 98406 40291</a></li>
+        <li>9/4 Duraisamy Layout 2, Avarampalayam, Coimbatore – 641004</li>
+      </ul>
+      <p class="signoff">I hereby declare the figures above are true to the best of my knowledge — and I'd be glad to put them to work for you.</p>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
