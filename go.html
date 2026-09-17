@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Go Backend Development - Learning Guide</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fa;
+            color: #1f2937;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 0;
+            color: #d1d5db;
+        }
+
+        .container {
+            display: flex;
+            min-height: calc(100vh - 120px);
+        }
+
+        /* =========================
+           SIDEBAR
+        ========================= */
+
+        .sidebar {
+            width: 280px;
+            background: white;
+            border-right: 1px solid #ddd;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+        }
+
+        .topic-link {
+            display: block;
+            padding: 10px 12px;
+            margin-bottom: 5px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #374151;
+            cursor: pointer;
+        }
+
+        .topic-link:hover {
+            background: #e5e7eb;
+        }
+
+        .topic-link.active {
+            background: #111827;
+            color: white;
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content {
+            flex: 1;
+            padding: 30px;
+            max-width: 1200px;
+        }
+
+        .welcome {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .welcome h2 {
+            margin-top: 0;
+        }
+
+        .topic {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            scroll-margin-top: 20px;
+        }
+
+        .topic h2 {
+            margin-top: 0;
+            color: #111827;
+        }
+
+        .topic-number {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .description {
+            line-height: 1.7;
+        }
+
+        /* =========================
+           CODE
+        ========================= */
+
+        pre {
+            background: #111827;
+            color: #e5e7eb;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
+        .keyword {
+            color: #93c5fd;
+        }
+
+        /* =========================
+           FLOW
+        ========================= */
+
+        .flow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .flow-box {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .arrow {
+            font-size: 20px;
+        }
+
+        /* =========================
+           GRID
+        ========================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .card {
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            background: #fafafa;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            background: #111827;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #374151;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .container {
+                display: block;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <h1>Go Backend Development</h1>
+
+    <p>
+        Complete Go Learning Guide - 20 Important Topics
+    </p>
+
+</header>
+
+
+<div class="container">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <h3>Go Topics</h3>
+
+        <input
+            type="text"
+            id="search"
+            class="search"
+            placeholder="Search topic..."
+        >
+
+        <div id="topicList">
+
+            <a class="topic-link" href="#topic1">
+                01. Go Basics
+            </a>
+
+            <a class="topic-link" href="#topic2">
+                02. Arrays, Slices & Maps
+            </a>
+
+            <a class="topic-link" href="#topic3">
+                03. Structs
+            </a>
+
+            <a class="topic-link" href="#topic4">
+                04. Interfaces
+            </a>
+
+            <a class="topic-link" href="#topic5">
+                05. Error Handling
+            </a>
+
+            <a class="topic-link" href="#topic6">
+                06. Pointers
+            </a>
+
+            <a class="topic-link" href="#topic7">
+                07. Methods
+            </a>
+
+            <a class="topic-link" href="#topic8">
+                08. Goroutines
+            </a>
+
+            <a class="topic-link" href="#topic9">
+                09. Channels
+            </a>
+
+            <a class="topic-link" href="#topic10">
+                10. sync Package
+            </a>
+
+            <a class="topic-link" href="#topic11">
+                11. Context
+            </a>
+
+            <a class="topic-link" href="#topic12">
+                12. Packages & Modules
+            </a>
+
+            <a class="topic-link" href="#topic13">
+                13. JSON
+            </a>
+
+            <a class="topic-link" href="#topic14">
+                14. HTTP
+            </a>
+
+            <a class="topic-link" href="#topic15">
+                15. Gin
+            </a>
+
+            <a class="topic-link" href="#topic16">
+                16. MySQL
+            </a>
+
+            <a class="topic-link" href="#topic17">
+                17. Testing
+            </a>
+
+            <a class="topic-link" href="#topic18">
+                18. File Handling
+            </a>
+
+            <a class="topic-link" href="#topic19">
+                19. Logging
+            </a>
+
+            <a class="topic-link" href="#topic20">
+                20. Production Go
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="content">
+
+
+        <!-- =================================================
+             WELCOME
+        ================================================== -->
+
+        <section class="welcome">
+
+            <h2>Welcome to Go Backend Development 🚀</h2>
+
+            <p>
+                This page is a visual version of your
+                <strong>main.go</strong> learning file.
+            </p>
+
+            <p>
+                Recommended learning order:
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">Basics</div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">Structs</div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">Methods</div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">Interfaces</div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">Errors</div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">Pointers</div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">Concurrency</div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">HTTP</div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">Gin</div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">MySQL</div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">Production</div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             01 BASICS
+        ================================================== -->
+
+        <section class="topic" id="topic1">
+
+            <div class="topic-number">
+                TOPIC 01
+            </div>
+
+            <h2>Go Basics</h2>
+
+            <p class="description">
+                Learn variables, constants, conditions,
+                loops, functions and basic Go syntax.
+            </p>
+
+            <pre><code>package main
+
+import "fmt"
+
+func add(a int, b int) int {
+    return a + b
+}
+
+func main() {
+
+    var name string = "Justin"
+
+    age := 30
+
+    const country = "India"
+
+    if age >= 18 {
+        fmt.Println("Adult")
+    }
+
+    for i := 1; i <= 5; i++ {
+        fmt.Println(i)
+    }
+
+    result := add(10, 20)
+
+    fmt.Println(result)
+}</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             02 COLLECTIONS
+        ================================================== -->
+
+        <section class="topic" id="topic2">
+
+            <div class="topic-number">
+                TOPIC 02
+            </div>
+
+            <h2>Arrays, Slices & Maps</h2>
+
+            <p class="description">
+                These are the main collection types in Go.
+            </p>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Array</h3>
+                    <p>Fixed size collection.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Slice</h3>
+                    <p>Dynamic collection.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Map</h3>
+                    <p>Key/value collection.</p>
+                </div>
+
+            </div>
+
+            <pre><code>numbers := [3]int{
+    10,
+    20,
+    30,
+}
+
+users := []string{
+    "Justin",
+    "John",
+    "David",
+}
+
+users = append(users, "Alex")
+
+employee := map[string]string{
+    "name":       "Justin",
+    "department": "IT",
+    "role":       "Developer",
+}
+
+fmt.Println(employee["name"])</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             03 STRUCTS
+        ================================================== -->
+
+        <section class="topic" id="topic3">
+
+            <div class="topic-number">
+                TOPIC 03
+            </div>
+
+            <h2>Structs</h2>
+
+            <p class="description">
+                Structs allow you to create your own data types.
+                Backend applications use structs for users,
+                employees, products and API requests.
+            </p>
+
+            <pre><code>type User struct {
+
+    ID       int    `json:"id"`
+    Name     string `json:"name"`
+    Email    string `json:"email"`
+    Role     string `json:"role"`
+    IsActive bool   `json:"is_active"`
+
+}
+
+func main() {
+
+    user := User{
+        ID:       1,
+        Name:     "Justin",
+        Email:    "justin@example.com",
+        Role:     "Developer",
+        IsActive: true,
+    }
+
+    fmt.Println(user.Name)
+
+}</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             04 INTERFACES
+        ================================================== -->
+
+        <section class="topic" id="topic4">
+
+            <div class="topic-number">
+                TOPIC 04
+            </div>
+
+            <h2>Interfaces</h2>
+
+            <p class="description">
+                Interfaces define behavior. Go interfaces are
+                implemented implicitly.
+            </p>
+
+            <pre><code>type NotificationService interface {
+
+    Send(message string) error
+
+}
+
+type EmailService struct{}
+
+func (e EmailService) Send(message string) error {
+
+    fmt.Println("Sending email:", message)
+
+    return nil
+}
+
+type SMSService struct{}
+
+func (s SMSService) Send(message string) error {
+
+    fmt.Println("Sending SMS:", message)
+
+    return nil
+}</code></pre>
+
+            <div class="flow">
+
+                <div class="flow-box">Handler</div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-box">
+                    Service Interface
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-box">
+                    Repository
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-box">
+                    MySQL
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             05 ERRORS
+        ================================================== -->
+
+        <section class="topic" id="topic5">
+
+            <div class="topic-number">
+                TOPIC 05
+            </div>
+
+            <h2>Error Handling</h2>
+
+            <p class="description">
+                Go normally uses returned errors instead of
+                try/catch.
+            </p>
+
+            <pre><code>func divide(a, b int) (int, error) {
+
+    if b == 0 {
+
+        return 0,
+            errors.New(
+                "cannot divide by zero",
+            )
+    }
+
+    return a / b, nil
+}
+
+result, err := divide(10, 2)
+
+if err != nil {
+
+    fmt.Println("Error:", err)
+
+    return
+}
+
+fmt.Println(result)</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             06 POINTERS
+        ================================================== -->
+
+        <section class="topic" id="topic6">
+
+            <div class="topic-number">
+                TOPIC 06
+            </div>
+
+            <h2>Pointers</h2>
+
+            <p class="description">
+                A pointer stores the memory address of a value.
+            </p>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>&</h3>
+                    <p>Gets the address.</p>
+                </div>
+
+                <div class="card">
+                    <h3>*</h3>
+                    <p>Dereferences the pointer.</p>
+                </div>
+
+            </div>
+
+            <pre><code>number := 100
+
+pointer := &number
+
+fmt.Println(number)
+
+fmt.Println(pointer)
+
+fmt.Println(*pointer)
+
+*pointer = 200
+
+fmt.Println(number)</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             07 METHODS
+        ================================================== -->
+
+        <section class="topic" id="topic7">
+
+            <div class="topic-number">
+                TOPIC 07
+            </div>
+
+            <h2>Methods & Receivers</h2>
+
+            <p class="description">
+                A method is a function attached to a type.
+            </p>
+
+            <pre><code>type User struct {
+
+    Name string
+
+}
+
+func (u User) GetName() string {
+
+    return u.Name
+
+}
+
+func (u *User) SetName(name string) {
+
+    u.Name = name
+
+}
+
+user := User{
+    Name: "Justin",
+}
+
+fmt.Println(user.GetName())
+
+user.SetName("Justin Rajadurai")
+
+fmt.Println(user.GetName())</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             08 GOROUTINES
+        ================================================== -->
+
+        <section class="topic" id="topic8">
+
+            <div class="topic-number">
+                TOPIC 08
+            </div>
+
+            <h2>Goroutines</h2>
+
+            <p class="description">
+                Goroutines allow functions to execute concurrently.
+            </p>
+
+            <pre><code>func worker(id int) {
+
+    fmt.Println("Worker started:", id)
+
+    time.Sleep(
+        500 * time.Millisecond,
+    )
+
+    fmt.Println(
+        "Worker finished:",
+        id,
+    )
+}
+
+go worker(1)
+
+go worker(2)
+
+go worker(3)</code></pre>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    Main Goroutine
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    Worker 1
+                </div>
+
+                <div class="flow-box">
+                    Worker 2
+                </div>
+
+                <div class="flow-box">
+                    Worker 3
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             09 CHANNELS
+        ================================================== -->
+
+        <section class="topic" id="topic9">
+
+            <div class="topic-number">
+                TOPIC 09
+            </div>
+
+            <h2>Channels</h2>
+
+            <p class="description">
+                Channels allow goroutines to communicate safely.
+            </p>
+
+            <pre><code>func worker(ch chan string) {
+
+    ch <- "Notification completed"
+
+}
+
+ch := make(chan string)
+
+go worker(ch)
+
+message := <-ch
+
+fmt.Println(message)</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             10 SYNC
+        ================================================== -->
+
+        <section class="topic" id="topic10">
+
+            <div class="topic-number">
+                TOPIC 10
+            </div>
+
+            <h2>sync Package</h2>
+
+            <p class="description">
+                Important synchronization tools include
+                Mutex, RWMutex, WaitGroup and Once.
+            </p>
+
+            <pre><code>var counter int
+
+var mutex sync.Mutex
+
+func increase(
+    wg *sync.WaitGroup,
+) {
+
+    defer wg.Done()
+
+    for i := 0; i < 1000; i++ {
+
+        mutex.Lock()
+
+        counter++
+
+        mutex.Unlock()
+    }
+}
+
+var wg sync.WaitGroup
+
+wg.Add(2)
+
+go increase(&wg)
+
+go increase(&wg)
+
+wg.Wait()
+
+fmt.Println(counter)</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             11 CONTEXT
+        ================================================== -->
+
+        <section class="topic" id="topic11">
+
+            <div class="topic-number">
+                TOPIC 11
+            </div>
+
+            <h2>Context</h2>
+
+            <p class="description">
+                Context is used for cancellation, timeouts,
+                deadlines and request-scoped operations.
+            </p>
+
+            <pre><code>ctx, cancel := context.WithTimeout(
+    context.Background(),
+    2 * time.Second,
+)
+
+defer cancel()
+
+select {
+
+case <-time.After(
+    1 * time.Second,
+):
+
+    fmt.Println(
+        "Operation completed",
+    )
+
+case <-ctx.Done():
+
+    fmt.Println(
+        "Context cancelled:",
+        ctx.Err(),
+    )
+}</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             12 PACKAGES
+        ================================================== -->
+
+        <section class="topic" id="topic12">
+
+            <div class="topic-number">
+                TOPIC 12
+            </div>
+
+            <h2>Packages & Modules</h2>
+
+            <p>
+                Real Go projects should be divided into packages.
+            </p>
+
+            <pre><code>hrms-notification/
+│
+├── cmd/
+│   └── server/
+│       └── main.go
+│
+├── internal/
+│   ├── handler/
+│   ├── service/
+│   ├── repository/
+│   ├── model/
+│   └── middleware/
+│
+├── config/
+├── routes/
+├── utils/
+│
+├── go.mod
+└── go.sum</code></pre>
+
+            <pre><code>go mod init github.com/yourname/project
+
+go get github.com/gin-gonic/gin
+
+go mod tidy
+
+go run .
+
+go build -o app</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             13 JSON
+        ================================================== -->
+
+        <section class="topic" id="topic13">
+
+            <div class="topic-number">
+                TOPIC 13
+            </div>
+
+            <h2>JSON</h2>
+
+            <p class="description">
+                JSON is heavily used in REST APIs.
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    Go Struct
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    JSON
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    Frontend
+                </div>
+
+            </div>
+
+            <pre><code>user := User{
+    ID:       1,
+    Name:     "Justin",
+    Email:    "justin@example.com",
+    Role:     "Developer",
+    IsActive: true,
+}
+
+data, err := json.Marshal(user)
+
+fmt.Println(string(data))</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             14 HTTP
+        ================================================== -->
+
+        <section class="topic" id="topic14">
+
+            <div class="topic-number">
+                TOPIC 14
+            </div>
+
+            <h2>HTTP</h2>
+
+            <p class="description">
+                Go has a powerful built-in HTTP package.
+            </p>
+
+            <pre><code>func helloHandler(
+    w http.ResponseWriter,
+    r *http.Request,
+) {
+
+    w.Header().Set(
+        "Content-Type",
+        "application/json",
+    )
+
+    response := map[string]string{
+        "message": "Hello from Go",
+    }
+
+    json.NewEncoder(w).Encode(
+        response,
+    )
+}
+
+http.HandleFunc(
+    "/hello",
+    helloHandler,
+)
+
+http.ListenAndServe(
+    ":3006",
+    nil,
+)</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             15 GIN
+        ================================================== -->
+
+        <section class="topic" id="topic15">
+
+            <div class="topic-number">
+                TOPIC 15
+            </div>
+
+            <h2>Gin Framework</h2>
+
+            <p class="description">
+                Gin is commonly used to build Go REST APIs.
+            </p>
+
+            <pre><code>router := gin.Default()
+
+router.GET(
+    "/users",
+    getUsers,
+)
+
+router.POST(
+    "/users",
+    createUser,
+)
+
+router.Run(":3006")</code></pre>
+
+            <h3>Professional Request Flow</h3>
+
+            <div class="flow">
+
+                <div class="flow-box">Angular</div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-box">Nginx</div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-box">Gin Router</div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-box">Middleware</div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-box">Handler</div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-box">Service</div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-box">Repository</div>
+
+                <div class="arrow">↓</div>
+
+                <div class="flow-box">MySQL</div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             16 MYSQL
+        ================================================== -->
+
+        <section class="topic" id="topic16">
+
+            <div class="topic-number">
+                TOPIC 16
+            </div>
+
+            <h2>MySQL Database</h2>
+
+            <p class="description">
+                Go commonly accesses databases through
+                the database/sql abstraction.
+            </p>
+
+            <pre><code>db, err := sql.Open(
+    "mysql",
+    "user:password@tcp(localhost:3306)/hrms",
+)
+
+if err != nil {
+    log.Fatal(err)
+}
+
+err = db.Ping()
+
+if err != nil {
+    log.Fatal(err)
+}</code></pre>
+
+            <h3>Backend Architecture</h3>
+
+            <div class="flow">
+
+                <div class="flow-box">Angular</div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">Handler</div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">Service</div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">Repository</div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">MySQL</div>
+
+            </div>
+
+            <p>
+                Prefer context-aware database operations:
+            </p>
+
+            <pre><code>QueryContext()
+
+QueryRowContext()
+
+ExecContext()</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             17 TESTING
+        ================================================== -->
+
+        <section class="topic" id="topic17">
+
+            <div class="topic-number">
+                TOPIC 17
+            </div>
+
+            <h2>Testing</h2>
+
+            <p>
+                Go has a built-in testing package.
+            </p>
+
+            <pre><code>func TestAdd(t *testing.T) {
+
+    result := add(10, 20)
+
+    if result != 30 {
+
+        t.Errorf(
+            "expected 30, got %d",
+            result,
+        )
+    }
+}</code></pre>
+
+            <pre><code>go test ./...
+
+go test -v ./...
+
+go test -cover ./...
+
+go test -race ./...</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             18 FILE HANDLING
+        ================================================== -->
+
+        <section class="topic" id="topic18">
+
+            <div class="topic-number">
+                TOPIC 18
+            </div>
+
+            <h2>File Handling</h2>
+
+            <p>
+                Go can create, read and write files using
+                the os and io packages.
+            </p>
+
+            <pre><code>file, err := os.Create(
+    "example.txt",
+)
+
+if err != nil {
+
+    fmt.Println(err)
+
+    return
+}
+
+defer file.Close()
+
+file.WriteString(
+    "Hello from Go",
+)</code></pre>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>POD Images</h3>
+                    <p>Save downloaded images.</p>
+                </div>
+
+                <div class="card">
+                    <h3>CSV</h3>
+                    <p>Generate reports.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Logs</h3>
+                    <p>Write application logs.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Uploads</h3>
+                    <p>Process uploaded files.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             19 LOGGING
+        ================================================== -->
+
+        <section class="topic" id="topic19">
+
+            <div class="topic-number">
+                TOPIC 19
+            </div>
+
+            <h2>Logging</h2>
+
+            <p>
+                Logging is important for production systems.
+            </p>
+
+            <pre><code>logger := slog.New(
+    slog.NewTextHandler(
+        os.Stdout,
+        nil,
+    ),
+)
+
+logger.Info(
+    "User logged in",
+    "user_id",
+    100,
+)
+
+logger.Error(
+    "Database connection failed",
+    "database",
+    "hrms",
+)</code></pre>
+
+            <p>Production logs should contain:</p>
+
+            <div class="cards">
+
+                <div class="card">
+                    Timestamp
+                </div>
+
+                <div class="card">
+                    Log Level
+                </div>
+
+                <div class="card">
+                    Request ID
+                </div>
+
+                <div class="card">
+                    User ID
+                </div>
+
+                <div class="card">
+                    Error
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             20 PRODUCTION
+        ================================================== -->
+
+        <section class="topic" id="topic20">
+
+            <div class="topic-number">
+                TOPIC 20
+            </div>
+
+            <h2>Production Go</h2>
+
+            <p class="description">
+                After learning the Go fundamentals, move into
+                production backend architecture.
+            </p>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Environment Variables</h3>
+                    <p>DB credentials, ports and secrets.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Graceful Shutdown</h3>
+                    <p>Allow active requests to finish.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Middleware</h3>
+                    <p>Authentication, CORS, logging and rate limiting.</p>
+                </div>
+
+                <div class="card">
+                    <h3>JWT</h3>
+                    <p>Authentication and authorization.</p>
+                </div>
+
+                <div class="card">
+                    <h3>WebSocket</h3>
+                    <p>Real-time notifications and updates.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Redis</h3>
+                    <p>Cache, sessions and pub/sub.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Worker Pool</h3>
+                    <p>Background jobs and processing.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Docker</h3>
+                    <p>Containerize Go applications.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Monitoring</h3>
+                    <p>CPU, RAM, errors and response time.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Race Detection</h3>
+                    <p>Find concurrent data races.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Profiling</h3>
+                    <p>CPU, memory and goroutine analysis.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Security</h3>
+                    <p>HTTPS, SQL injection protection and secrets.</p>
+                </div>
+
+            </div>
+
+
+            <h3>Production Architecture</h3>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    Angular
+                </div>
+
+                <div class="arrow">
+                    ↓
+                </div>
+
+                <div class="flow-box">
+                    Nginx
+                </div>
+
+                <div class="arrow">
+                    ↓
+                </div>
+
+                <div class="flow-box">
+                    Go / Gin
+                </div>
+
+                <div class="arrow">
+                    ↓
+                </div>
+
+                <div class="flow-box">
+                    Middleware
+                </div>
+
+                <div class="arrow">
+                    ↓
+                </div>
+
+                <div class="flow-box">
+                    Handler
+                </div>
+
+                <div class="arrow">
+                    ↓
+                </div>
+
+                <div class="flow-box">
+                    Service
+                </div>
+
+                <div class="arrow">
+                    ↓
+                </div>
+
+                <div class="flow-box">
+                    Repository
+                </div>
+
+                <div class="arrow">
+                    ↓
+                </div>
+
+                <div class="flow-box">
+                    MySQL
+                </div>
+
+            </div>
+
+
+            <h3>With Redis</h3>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    Go API
+                </div>
+
+                <div class="arrow">
+                    ↓
+                </div>
+
+                <div class="flow-box">
+                    Redis
+                </div>
+
+                <div class="arrow">
+                    ↓
+                </div>
+
+                <div class="flow-box">
+                    MySQL
+                </div>
+
+            </div>
+
+
+            <h3>Worker Pool</h3>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    Jobs
+                </div>
+
+                <div class="arrow">
+                    ↓
+                </div>
+
+                <div class="flow-box">
+                    Channel
+                </div>
+
+                <div class="arrow">
+                    ↓
+                </div>
+
+                <div class="flow-box">
+                    Worker 1
+                </div>
+
+                <div class="flow-box">
+                    Worker 2
+                </div>
+
+                <div class="flow-box">
+                    Worker 3
+                </div>
+
+                <div class="flow-box">
+                    Worker 4
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             COMPLETE FLOW
+        ================================================== -->
+
+        <section class="topic">
+
+            <h2>Complete Backend Request Flow</h2>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    Angular
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    HTTP / WebSocket
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    Nginx
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    Gin
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    Middleware
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    Handler
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    Service
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    Repository
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    MySQL
+                </div>
+
+            </div>
+
+            <h3>Additional Services</h3>
+
+            <div class="flow">
+
+                <div class="flow-box">
+                    Go API
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    Redis
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    Worker
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="flow-box">
+                    Firebase / Email / SMS
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<script>
+
+    /* =====================================================
+       SEARCH TOPICS
+    ===================================================== */
+
+    const searchInput =
+        document.getElementById("search");
+
+    const topicLinks =
+        document.querySelectorAll(".topic-link");
+
+
+    searchInput.addEventListener(
+        "input",
+        function () {
+
+            const search =
+                this.value.toLowerCase();
+
+            topicLinks.forEach(function (link) {
+
+                const text =
+                    link.textContent.toLowerCase();
+
+                if (text.includes(search)) {
+
+                    link.style.display = "block";
+
+                } else {
+
+                    link.style.display = "none";
+
+                }
+
+            });
+
+        }
+    );
+
+
+    /* =====================================================
+       ACTIVE TOPIC
+    ===================================================== */
+
+    topicLinks.forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                topicLinks.forEach(function (item) {
+
+                    item.classList.remove(
+                        "active"
+                    );
+
+                });
+
+                this.classList.add("active");
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       HIGHLIGHT CURRENT TOPIC WHILE SCROLLING
+    ===================================================== */
+
+    const sections =
+        document.querySelectorAll(".topic");
+
+
+    window.addEventListener(
+        "scroll",
+        function () {
+
+            let current = "";
+
+            sections.forEach(function (section) {
+
+                const sectionTop =
+                    section.offsetTop;
+
+                if (
+                    window.scrollY >=
+                    sectionTop - 150
+                ) {
+
+                    current =
+                        section.getAttribute("id");
+
+                }
+
+            });
+
+
+            topicLinks.forEach(function (link) {
+
+                link.classList.remove("active");
+
+                if (
+                    link.getAttribute("href") ===
+                    "#" + current
+                ) {
+
+                    link.classList.add("active");
+
+                }
+
+            });
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
